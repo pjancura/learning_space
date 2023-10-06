@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      canvas {
+        border: 1px solid #c3c3c3;
+      }
+    </style>
+    <script>
+      
+    
+	  
+    </script>
+  </head>
+  <body>
+    <h2>JS Canvas API</h2>
+    <canvas id="myCanvas" width="800" height="600">
+      Your browser does not support the canvas element.
+    </canvas>
+
+    <script>
+		var canvas = document.getElementById("myCanvas");
+      	var ctx = canvas.getContext("2d");
+      // var canvas = document.getElementById("myCanvas");
+      // var ctx = canvas.getContext("2d");
+      // ctx.fillStyle = "black";
+      // ctx.fillRect(0,0,100,100);
+      // ctx.strokeStyle = "#FF0000";
+      // ctx.strokeRect(699,0,100,100);
+      // ctx.beginPath();
+      // ctx.fillStyle = "green";
+      // ctx.arc(51, 549, 50, 0, Math.PI * 2, true);
+      // ctx.fill();
+      // //ctx.moveTo(799, 549);
+      // ctx.strokeStyle = "blue";
+      // ctx.arc(749, 549, 50, 0, Math.PI * 2, true);
+      // ctx.stroke();
+      // ctx.font = "48px serif";
+      // ctx.fillStyle = "#888888";
+      // ctx.fillText("JavaScript", 400,300);
+	  class Circle {
+        constructor(x, y, radius, color, filled) {
+          this.x = x;
+          this.y = y;
+          this.radius = radius;
+          this.color = color;
+          this.filled = filled;
+        } //END constructor
+		drawCircle(){
+			ctx.moveTo((this.x + this.radius), this.y);
+			if(this.filled){
+				ctx.fillStyle = this.color;
+				ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+				ctx.fill();
+			} else {
+				ctx.strokeStyle = this.color;
+				ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+				ctx.stroke();
+			}
+		}//END drawCircle
+      } //END Circle
+
+	  let circ1 = new Circle(150,150, 100, "blue" ,true);
+	  let circ2 = new Circle(300,400,150,"lightblue",false);
+
+	  
+		
+		
+	  	circ1.drawCircle();
+		circ2.drawCircle();
+		class Rectangle{
+			constructor(x , y, width, height,color,filled){
+				this.x = x;
+				this.y = y;
+				this.width = width;
+				this.height = height;
+				this.color = color;
+				this.filled = filled;
+			}//END constructor
+			drawRect(){
+				ctx.moveTo(this.x, this.y);
+				if(this.filled){
+					ctx.fillStyle = this.color;
+					ctx.fillRect(this.x, this.y, this.width, this.height);
+				} else {
+					ctx.strokeStyle = this.color;
+					ctx.strokeRect(this.x, this.y, this.width, this.height);
+				}
+			} //END drawRect
+		}//END Rectangle
+		let rect1 = new Rectangle(40,200,50,50,"grey",true);
+		
+		rect1.drawRect();
+		let xCoord = 200;
+		let yCoord = 0;
+		for (let i = 0; i < 20; i++){
+			let rect2 = new Rectangle(xCoord,yCoord,40,70,"pink",false);
+			rect2.drawRect();
+			if(i < 10){
+				xCoord += 10;
+			} else{
+				xCoord -= 15;
+			}
+			if(i < 10){
+				yCoord += 3;
+			} else {
+				yCoord += 6;
+			}
+		}
+    </script>
+  </body>
+</html>

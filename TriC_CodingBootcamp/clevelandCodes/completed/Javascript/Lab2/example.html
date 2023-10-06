@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var things = [];
+        things[0] = 5;
+        things[1] = 'paul';
+        things[2] = 3.1415926535892
+        
+        function runProgram(){
+            alert("The length of things is: " + (things.length));
+            for (let i = 0; i < things.length; i++){
+            document.write(things[i] + "<br/>");
+            }
+            for (let i = 0; i < 5; i++){
+                things[i] = prompt("Enter: ");
+            }
+            for (let i = 0; i < things.length; i++){
+            document.write(things[i] + "<br/>");
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Run Program" onclick="runProgram()">
+</body>
+</html>

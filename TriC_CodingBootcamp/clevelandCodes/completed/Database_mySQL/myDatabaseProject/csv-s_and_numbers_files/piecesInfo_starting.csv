@@ -1,0 +1,67 @@
+piece_id,piece_name,opus_id,sequence_num,Tempo,key_sig_id,time_sig_id,challenge_rating
+NULL,Arietta,1,1,Poco Andante e sostenuto,15,11,5
+NULL,Waltz,1,2,Allegro moderato,22,12,4
+NULL,Watchman?s Song,1,3,Molto andante e semplice,13,2,4
+NULL,Elves? Dance,1,4,Molto Allegro e sempre staccato,34,12,6
+NULL,Folk Melody,1,5,Con moto,38,12,5
+NULL,Norwegian Melody,1,6,Presto marcato,10,12,6
+NULL,Album Leaf,1,7,Allegretto e dolce,34,11,5
+NULL,National Song,1,8,Maestoso,15,13,4
+NULL,Berceuse,2,1,Allegretto tranquillo,19,11,5
+NULL,Folk Melody,2,2,Allegro con moto,34,12,5
+NULL,Melody,2,3,Allegretto,7,13,5
+NULL,Halling,2,4,Allegro marcato,40,11,6
+NULL,Leaping Dance,2,5,Allegro giocoso,19,12,6
+NULL,Elegy,2,6,Allegretto semplice,22,12,5
+NULL,Waltz,2,7,Poco Allegro,34,12,5
+NULL,Canon,2,8,Allegretto con moto,27,12,6
+NULL,Butterfly,3,1,Allegro grazioso,1,13,7
+NULL,Lonely Wanderer,3,2,Allegretto semplice,25,24,6
+NULL,In My Homeland,3,3,Poco andante,32,13,5
+NULL,Little Bird,3,4,Allegretto leggiero,31,24,6
+NULL,Erotic Piece,3,5,Lento molto,16,11,7
+NULL,To Spring,3,6,Allegro appassionato,17,15,7
+NULL,Valse-Impromptu,4,1,Allegro con moto,34,12,6
+NULL,Album Leaf,4,2,Allegro vivace,16,24,6
+NULL,Melody,4,3,Allegretto,22,24,5
+NULL,Halling,4,4,Allegro,10,11,5
+NULL,Melancholy,4,5,Largo,40,11,5
+NULL,Leaping Dance,4,6,Allegro vivace,19,12,6
+NULL,Elegy,4,7,Poco Andante,25,11,5
+NULL,Shepard Boy,5,1,Andante espressivo,40,24,6
+NULL,Peasants? March,5,2,Allegretto marcato,7,24,5
+NULL,March of the Trolls,5,3,Allegro moderato,31,11,8
+NULL,Notturno,5,4,Andante espressivo,7,27,5
+NULL,Scherzo,5,5,Prestissimo leggiero,34,12,5
+NULL,Bell-Ringing,5,6,Andante,7,11,5
+NULL,Vanished Days,6,1,Andantino,31,12,5
+NULL,Gade,6,2,Allegro grazioso,1,2,5
+NULL,Illusion,6,3,Allegretto serioso,22,24,5
+NULL,Secret,6,4,Andante espressivo,19,13,5
+NULL,She Dances,6,5,Tempo di Valse,7,12,5
+NULL,Homesickness,6,6,Andante,34,12,5
+NULL,Sylph,7,1,Allegretto con moto,25,12,5
+NULL,Thanks,7,2,Allegretto semplice,19,13,4
+NULL,French Serenade,7,3,Andante grazioso,1,13,5
+NULL,The Brook,7,4,Allegro leggiero,25,12,6
+NULL,Phantom,7,5,Poco Andante ed espressivo,1,24,5
+NULL,Homeward,7,6,Allegro giocoso alla marcia,13,11,5
+NULL,From Days of Youth,8,1,Allegro moderato e tranquillo,31,12,5
+NULL,Peasant?s Song,8,2,Andante semplice,1,13,5
+NULL,Sadness,8,3,Andante espressivo,25,13,6
+NULL,Salon,8,4,Allegretto con grazia,1,24,6
+NULL,In Ballad Style,8,5,Lento lugubre,28,2,5
+NULL,Wedding Day at Troldhaugen,8,6,Tempo di Marcia un poco vivace,10,13,7
+NULL,Sailors? Song,9,1,Allegro vivace e marcato,7,2,5
+NULL,Grandmother?s Minuet,9,2,Allegretto grazioso e leggerissimo,19,12,4
+NULL,At Your Feet,9,3,Pco Andante e molto espressivo,10,11,5
+NULL,Evening in the Mountains,9,4,Allegretto,34,11,5
+NULL,Cradle Song,9,5,Allegretto tranquillamente,13,13,5
+NULL,Valse melancolique,9,6,Tempo di Valse tranquillo,40,12,5
+NULL,Once upon a Time,10,1,Andante con moto,34,13,6
+NULL,Summer Evening,10,2,Allegretto tranquillamente,27,12,6
+NULL,Little Troll,10,3,Allegro molto,36,2,5
+NULL,Woodland Peace,10,4,Lento,38,2,6
+NULL,Halling,10,5,Allegro molto,7,11,6
+NULL,Gone,10,6,Andante doloroso,34,13,5
+NULL,Remembrances,10,7,Tempo di Valse,15,12,5

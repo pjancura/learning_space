@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Lab 10-1</title>
+<script>
+    //<!--
+    //onclick functions
+    //let stuffHappened = (event) => {
+    //     alert(event);
+    //     return;
+    // }
+   //document.document.forms[0].elements[6]
+    function submitted () {
+        console.log("submit started");
+        let form1 = document.forms[0];
+        console.log(form1);
+        let fName = form1.fname.value;
+        console.log(fName);
+        let lName = form1.lname.value;
+        let eMail = form1.email.value;
+        let pWord = form1.pwd.value;
+        let gender = form1.gen.value;
+        let info = fName + " " + lName;
+        info += "\nemail: " + eMail;
+        info += "\nPassword: " + pWord;
+        info += "\nYour picked gender: " + gender;
+        alert(info);
+     
+    
+    }
+    let genderChange = () => {
+        console.log(document.forms[0].gen.value);
+    }
+    window.onload = () => {  
+        document.forms[0].elements[6].onclick = submitted;
+        // document.forms[0].addEventListener("change", function(){
+        //     console.log(document.forms[0]);
+        // });
+        
+    }
+    
+    
+    //-->
+</script>
+</head>
+<body>
+<h3>CIW JavaScript Specialist</h3>
+<hr />
+<form action="" name="myForm" id="myForm">
+	<label><b>Name</b></label>
+    <input type="text" placeholder="FirstName" name="fname" required   > 
+	<input type="text" placeholder="LastName" name="lname" required> <br />
+	 <label><b>EMail</b></label>
+	<input type="text" placeholder="Enter Email ID" name="email" required> <br />
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="pwd" required maxLength="10"> <br />
+	 <label><b>Gender</b></label>
+    <input type="radio" name="gen" value="male" onchange="genderChange()">Male
+	<input type="radio" name="gen" value="female" onchange="genderChange()">Female <br />
+    <input type="submit" >
+    <input type="reset">
+</form>
+</body>
+</html>
