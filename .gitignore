@@ -30,3 +30,11 @@ plotly/P48-Custom-Data-PUBG.csv
 plotly/P48-Time-Series-Tesla-Stock-Price.csv
 plotly/P48-Practical-Introduction-Questions.pdf
 plotly/P48-Creating-Maps-Minority-Majority.csv
+
+# specifically needed to list these .DS_Store files
+zenva/.DS_Store
+TriC_CodingBootcamp/.DS_Store
+TriC_CodingBootcamp/clevelandCodes/completed/.DS_Store
+TriC_CodingBootcamp/clevelandCodes/completed/Python/.DS_Store
+TriC_CodingBootcamp/uCertify/.DS_Store
+TriC_CodingBootcamp/uCertify/completed/.DS_Store
