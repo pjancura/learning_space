@@ -3,5 +3,7 @@
         "*.ejs": "html",
         "stdlib.h": "c",
         "stdio.h": "c"
-    }
+    },
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.project.explorer.showNonJavaResources": false
 }
