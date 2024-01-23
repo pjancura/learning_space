@@ -1,0 +1,2 @@
+Service workers: JS running in a background process even if the application is closed
+    they allow us to cache some files for offline features
