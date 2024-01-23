@@ -67,3 +67,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+
+###################################
+######      NODE MODULES    #######
+###################################
+pwa_course_uDemy/demo_pwa/node_modules
