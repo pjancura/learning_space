@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Randomizer</title>
+    <script>
+      function team_randomizer() {
+        document.getElementById("teamOut1").innerHTML = "";
+        document.getElementById("teamOut2").innerHTML = "";
+        console.log("\n\n****************************************************");
+        let memberList = document.getElementById("memberList").innerHTML;
+        let newGroup = memberList.split(",");
+        console.log(newGroup);
+        let team1 = [];
+        let team2 = [];
+        let counter = 0; //maintains the length of what is left to assign to a team
+        let runPicker = true;
+        let counter2 = 0;
+
+        while (runPicker) {
+          //break;
+          console.log(`${newGroup}`);
+          counter2++;
+          if (counter < newGroup.length) {
+            counter += 1;
+          }
+          randInt = Math.floor(Math.random() * (newGroup.length - counter));
+          item = newGroup.splice(randInt, 1);
+          popped = item.join();
+          randInt2 = Math.ceil(Math.random() * 2);
+          if (newGroup.length == team1.length + team2.length) {
+            //this accounts for an odd numbered list
+            team1.push(` ${popped}`);
+            newGroup.push("Tie breaker");
+          } else if (
+            randInt2 == 1 &&
+            team1.length < Math.floor(newGroup.length / 2)
+          ) {
+            //this makes sure that teams are equal in size
+            team1.push(` ${popped}`);
+            newGroup.push("team1");
+          } else if (
+            randInt2 == 2 &&
+            team2.length < Math.floor(newGroup.length / 2)
+          ) {
+            team2.push(` ${popped}`);
+            newGroup.push("team2");
+          } else {
+            newGroup.unshift(popped);
+            counter--;
+          }
+          if (newGroup.length == team1.length + team2.length) {
+            console.log(
+              `\nEnding team_randomizer()\nI ran ${counter2} times to assign the teams.`
+            );
+            runPicker = false;
+          }
+          if (counter2 == 100) {
+            console.log("\nI ran 100 times boss\n");
+            runPicker = false;
+          }
+        }
+        console.log(`\n********** TEAMS *********\n`);
+        console.log(`Here is Team 1: \n\t${team1}\n`);
+        console.log(`Here is Team 2: \n\t${team2}\n`);
+        console.log(`**********       **********\n`);
+        for (i = 0; i < team1.length; i++) {
+          console.log(team1[i]);
+          document.getElementById("teamOut1").innerHTML += team1[i] + "<br>";
+        }
+        for (i = 0; i < team2.length; i++) {
+          console.log(team2[i]);
+          document.getElementById("teamOut2").innerHTML += team2[i] + "<br>";
+        }
+      }
+
+      function addAMember() {
+        //get value from groupMember
+        let gMember = document.getElementById("groupMember");
+        let gMemberValue = gMember.value;
+        //print value to a paragraph (memberList)
+        mList = document.getElementById("memberList");
+        if (mList.innerHTML == "") {
+          let mListInner = (mList.innerHTML = gMemberValue);
+        } else {
+          let mlistInner = (mList.innerHTML += ", " + gMemberValue);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Sort a group into 2 teams</h1>
+    <label for="groupMember"
+      >Group Member: <input type="text" name="groupMember" id="groupMember"
+    /></label>
+    <input type="button" value="Add Member" onclick="addAMember()" />
+    <p>&nbsp;</p>
+    <input type="button" value="Split Group" onclick="team_randomizer()" />
+    <br />
+    <br />
+    <p id="memberList"></p>
+    <br />
+    <br />
+    <table>
+      <tr>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>Team 1</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>Team 2</th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td id="teamOut1"></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td id="teamOut2"></td>
+      </tr>
+    </table>
+  </body>
+</html>
