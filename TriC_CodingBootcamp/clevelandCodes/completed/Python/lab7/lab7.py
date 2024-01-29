@@ -10,14 +10,14 @@ try:
     with connect(
         host="localhost",
         user="root",
-        password=">@rkness*SQL94",
+        password=input("What's your password?: \n"),
         database="griegLyricPieces"
     ) as connection:
         print(f"\n**********\nConnected to mySQL\nDatabase = {connection.database}\n**********\n")
 
-        query = "SELECT o.op_num, p.piece_name, p.sequence_num FROM pieces p JOIN opusInfo o ON p.opus_id = o.id_num;"
+        query = "SELECT o.op_num, p.piece_name, p.sequence_num FROM pieces p  JOIN opusInfo o ON p.opus_id = o.id_num WHERE p.sequence_num = 3 ORDER BY p.piece_name;"
 
-        print(f"\nQuery: {query}")
+        print(f"\nQuery: {query}\n")
         with connection.cursor(dictionary = True) as cursor:      #this allows us to execute commands  ///write commits
             cursor.execute(query)
             result = cursor.fetchall()

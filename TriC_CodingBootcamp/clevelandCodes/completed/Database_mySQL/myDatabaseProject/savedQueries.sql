@@ -1,3 +1,17 @@
+-- SHOWS ALL TABLES AND COLUMNS
+SELECT TABLE_SCHEMA AS 'database',
+       TABLE_NAME AS 'table',
+       COLUMN_NAME AS 'Field',
+       DATA_TYPE AS 'Type',
+       IS_NULLABLE AS 'Null',
+       COLUMN_KEY AS 'Key',
+       COLUMN_DEFAULT AS 'Default',
+       EXTRA AS 'Extra' 
+FROM information_schema.COLUMNS
+WHERE TABLE_SCHEMA = DATABASE()
+
+
+
 -- SHOWS ALL PIECES FROM OPUS 4 OF THE LYRIC PIECES
 SELECT p.piece_name, p.opus_id, p.sequence_num, p.tempo, ks.key_sig_name AS key_sig, ts.time_signature AS time_sig, p.challenge_rating
 FROM pieces p
