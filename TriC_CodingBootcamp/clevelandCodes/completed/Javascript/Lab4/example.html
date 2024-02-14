@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        'use strict'
+        
+        const runProgram = () =>{
+          getBrowserInfo();
+           
+        }
+        let appCodeName = navigator.appCodeName;
+        let appName = navigator.appName;
+        let appVersion = navigator.appVersion;
+        let userAgent = navigator.userAgent;
+        let opSys = navigator.platform;
+        
+
+        function getBrowserInfo(){
+            var info="";
+
+            info += "Welcome, " +   appCodeName ;         //Add appCodeName here
+            info += " user!\n\rYou are using the "; 
+            info +=  appName    + " browser, version ";        //Add appName here
+            info +=     appVersion + ".\n\rYour user agent ";       //Add appVersion here
+            info += "information is " +  userAgent       ;          //Add userAgent here
+            info += "\n\rThis is the OS you are using: " + opSys;        //Adds the OS info
+
+            document.getElementById("browserInfo").value= info;
+            document.getElementById("paraNew").innerHTML = info;
+            console.log(document.getElementById("paraNew").innerHTML);
+        }
+        window.onload = function(){
+            let img1 = document.images[0];
+            let img2 = document.images[1];
+            img1.onmouseover = () => { img1.src = "images/jefferson.jpg"}
+            img1.onmouseout = () => { img1.src = "images/adams.jpg"}
+            img2.onmouseover = () => {img2.src = "images/adams.jpg"}
+            img2.onmouseout = () => {img2.src = "images/jefferson.jpg"}
+            //changes mouseover color of the button
+            let input2 = document.getElementById("getBrowserInfo");
+            //let input2 = document.             
+            input2.onmouseover = () => {input2.style.backgroundColor = "purple"}
+            input2.onmouseout = () => {input2.style.backgroundColor = "lightgrey"}
+        }
+        
+    </script>
+    <style>
+        #getBrowserInfo{
+            scale: 200%;
+            margin: 0 auto;
+            display: block;
+            border-radius: 50%;
+            padding: 1rem;
+        }
+        div{
+            height: 20em;
+        }
+        img{
+            vertical-align: top;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+     <input type="button" value="Run Program" onclick="runProgram()">
+        <br>
+        <br>
+        <br>
+<div>
+     <img src="images/adams.jpg" alt="president adams" id="imgAdams">
+     <img src="images/jefferson.jpg" alt="president adams" id="imgJefferson">
+    </div>
+     <br>
+     <br>
+     <br>
+     <input type="button" value="Get Browser Info" id="getBrowserInfo" onclick="getBrowserInfo()"/>
+
+     <br>
+     <br>
+     <br>
+     <textarea name="browserInfo" id="browserInfo" cols="50" rows="15"></textarea>
+     <br>
+     <br>
+     <br>
+     <p id="paraNew"></p>
+</body>
+</html>

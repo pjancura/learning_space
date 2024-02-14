@@ -1,0 +1,108 @@
+<html>
+<head>
+	<title>Lab 3 - Functions & Working with HTML</title> 
+	<script>
+		"use strict";
+		function calcFactorial(num) {
+            // calculate and return factorial of num
+			let factorial = 1
+			if (num >= 0){
+				for(let i = num; i >= 1; i--){
+					factorial *= i;
+				}
+			} else {
+				for (let i = num; i <= -1; i++){
+					factorial *= i;
+				}
+			}
+			return factorial;
+		}
+		function calculate() {
+		    // get myNum entered by the user
+		    let myNum = document.getElementById("myNum").value;
+			
+		    // square it
+		    let mySquare = Math.pow(myNum, 2);
+			
+		    // call your function to calculate factorial
+		    let myFactorial = calcFactorial(myNum);
+		   
+		    // display the square and factorial in the input fields
+			document.getElementById("mySquare").value = mySquare;
+			document.getElementById("myFactorial").value = myFactorial;
+		}
+		
+        window.onload = function() {
+		   document.getElementById("goCalculate").onclick = calculate;
+		}
+	</script>
+	<style>
+		body{
+			padding: 5% 15%;
+			font-family:'Courier New', Courier, monospace;	
+		}
+		h2{
+			margin-left: 1.2rem;
+		}
+		*:disabled{
+			background-color: rgba(231, 97, 189, 0.5);
+			color: navy;
+		}
+		.margin0{
+			margin-left: 4rem;
+			background-color: rgba(186, 129, 239, 0.5);
+			color: navy;
+			
+		}
+		input.margin1{
+			margin-left: 1rem;
+		}
+		input.margin2{
+			margin-left: 4.5rem;
+		}
+		.reg{
+			width: 66%;
+			margin-top: 5rem;
+			margin-left: 5rem;
+			padding: 1rem;
+			border: 0.5rem solid navy ;
+			box-shadow: -5rem 15rem 4rem -1.5rem black;
+			transform: skew(30deg, 10deg);
+		}
+		.reg:hover {
+			width: 66%;
+			margin-top: 4rem;
+			margin-left: 0;
+			padding: 1rem;
+			border: 0.5rem solid navy;
+			box-shadow: 0rem 0rem 2rem 0.3rem black;
+			transform: skew(0);
+
+		}
+
+		
+	</style>
+</head> 
+<body>
+	<main>
+		<h2>Enter a Number for Calculation</h2>
+		<div>
+		<div class="changer reg">
+		<label for="myNum">My Number Is:</label>
+		<input type="text" id="myNum" class="margin0"><br>
+		<br/>
+		<!-- display the squre here -->
+		<label for="mySquare">My Number Squared:</label> 
+		<input type="text" id="mySquare" disabled class="margin1"><br> 
+		<br/>
+		<!-- display the factorial here -->
+		<label for="">My Factorial</label> 
+		<input type="text" id="myFactorial" disabled class="margin2"><br> 
+		<br/>
+		<label>&nbsp;</label>
+		<input type="button" id="goCalculate" value="GO" class="margin3"><br> 
+	</div>
+</div>
+	</main> 
+</body>  
+</html>

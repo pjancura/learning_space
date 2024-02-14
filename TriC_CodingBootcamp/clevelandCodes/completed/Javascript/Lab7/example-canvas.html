@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      canvas {
+        border: 1px solid #c3c3c3;
+      }
+    </style>
+    <script>
+      "use strict";
+      class Person {
+        constructor(name, birthYear) {
+          this.name = name;
+          this.birthYear = birthYear;
+        } //END constructor
+        describe() {
+          let str = this.name + " is " + this.age + " years old.";
+          return str;
+        } //END describe
+		getAge(){
+			let date = new Date();
+			let currentYear = date.getFullYear();
+			let age = parseInt(currentYear) - parseInt(this.birthYear);
+			age += " years old";
+			return age;
+		} //END getAge
+      } //END class Person
+
+	  class Doctor extends Person {
+		constructor(name, birthYear, graduated){
+			super(name, birthYear);
+			this.graduated = graduated;
+		}
+		describe(){    //THIS IS AN OVERLOAD FUNCTION OF THE ORIGINAL DESCRIBE FUNCTION
+			let str = "Dr. " + this.name + " is in the office today. <br/> <br/>";
+			str += " He graduated medical school in " + this.graduated;
+			str += "<br/><br/> He was born in " + this.birthYear + ".";
+			return str;
+		}//END describe doctor
+	  }//END class Doctor extends Person
+
+      let p1 = new Person("Wayne", 1967); //THIS IS AN INSTANTIATION OF THE CLASS PERSON
+	  let p2 = new Person("Paul", 1990);
+	  
+	  let doc1 = new Doctor("Eugene", 1992, 2016);
+	  doc1.birthYear = 1982;
+
+	  window.onload = function(){
+		document.getElementById("display").innerHTML = doc1.describe();
+		
+	  }
+    </script>
+  </head>
+  <body>
+    <h2>Classes and Custom Objects</h2>
+    <p id="display"></p>
+
+    <h2>JS Canvas API</h2>
+    <canvas id="myCanvas" width="800" height="600">
+      Your browser does not support the canvas element.
+    </canvas>
+
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, 100, 100);
+      ctx.strokeStyle = "#FF0000";
+      ctx.strokeRect(699, 0, 100, 100);
+      //ctx.beginPath();     //HE WAS MESSING WITH THIS...IT ISN'T DOING ANYTHING
+      ctx.fillStyle = "green";
+      ctx.arc(50, 549, 50, 0, Math.PI * 2, true);
+      ctx.fill();
+      ctx.strokeStyle = "green";
+      ctx.stroke();
+      ctx.moveTo(799, 549); //THIS IS FOR CIRCLES ONLY; OTHERWISE THE 2 CIRCLES WILL BE CONNECTED
+      ctx.strokeStyle = "blue";
+      ctx.arc(749, 549, 50, 0, Math.PI * 2, true);
+      ctx.stroke();
+      ctx.font = "48px serif";
+      ctx.fillStyle = "#888888";
+      ctx.fillText("JavaScript", 400, 300);
+
+      //IT SEEMS THAT PREVIOUS COLORS ARE ADDED TO SUBSEQUENT SHAPES
+    </script>
+  </body>
+</html>

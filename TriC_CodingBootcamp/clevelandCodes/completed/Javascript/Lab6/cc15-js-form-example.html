@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Form Example (short version)</title>
+    <style>
+      .blacktext {
+        color: black;
+      }
+      .redtext {
+        color: red;
+      }
+    </style>
+    <script>
+      "use script";
+      let formGood = true;
+
+      function submitForm() {
+        let fname = document.getElementById("fname").value;
+        let lname = document.getElementById("lname").value;
+        let mstatus = document.getElementById("mstatus").value;
+        console.log(mstatus);
+        let sname = document.getElementById("sname").value;
+        if (fname == "") {
+          formGood = false;
+          document.getElementById("fnamelabel").className = "redtext";
+        } else {
+          document.getElementById("fnamelabel").className = "blacktext";
+        }
+        if (lname == "") {
+          formGood = false;
+          document.getElementById("lnamelabel").className = "redtext";
+        } else {
+          document.getElementById("lnamelabel").className = "blacktext";
+        }
+        if (mstatus == "") {
+          formGood = false;
+          document.getElementById("mstatuslabel").className = "redtext";
+        } else {
+          document.getElementById("mstatuslabel").className = "blacktext";
+        }
+          if (mstatus == "married" && sname == "") {
+            formGood = false;
+            document.getElementById("snamelabel").className = "redtext";
+          } else {
+            document.getElementById("snamelabel").className = "blacktext";
+          }
+        
+        if (formGood == true) {
+          console.log(formGood);
+        }
+        return formGood;
+      }
+
+      function mstatusChange() {
+        let mstatus = document.getElementById("mstatus").value;
+        console.log(mstatus);
+        if (mstatus == "single") {
+          document.getElementById("sname").disabled = true;
+        } else {
+          document.getElementById("sname").disabled = false;
+        }
+      }
+
+      window.onload = function () {
+        document.getElementById("process").onclick = submitForm;
+        document.getElementById("mstatus").onchange = mstatusChange;
+        document.getElementById("fname").focus();
+      };
+    </script>
+  </head>
+  <body>
+    <main>
+      <h2>Lab 6 Forms (Short version)</h2>
+      <span id="errormsg">&nbsp;</span>
+      <form
+        id="reg_form"
+        name="reg_form"
+        action="https://www.waynedog.net/formreader2.php"
+        method="POST"
+      >
+        <table>
+          <tr>
+            <td>
+              <label for="fname" id="fnamelabel" class="blacktext"
+                >First Name</label
+              >
+            </td>
+            <td><input type="text" name="fname" id="fname" /></td>
+            <td>
+              <label for="lname" id="lnamelabel" class="blacktext"
+                >Last Name</label
+              >
+            </td>
+            <td><input type="text" name="lname" id="lname" /></td>
+          </tr>
+          <tr>
+            <td>
+              <label for="mstatus" id="mstatuslabel" class="blacktext"
+                >Marital Status</label
+              >
+            </td>
+            <td>
+              <select name="mstatus" id="mstatus">
+                <option value="">Choose one</option>
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+              </select>
+            </td>
+            <td>
+              <label for="sname" id="snamelabel" class="blacktext"
+                >Spouse Name</label
+              >
+            </td>
+            <td><input type="text" name="sname" id="sname" /></td>
+          </tr>
+          <tr>
+            <td><input type="reset" id="reset_form" value="RESET" /></td>
+            <td>&nbsp;</td>
+            <td><button type="button" id="process">SUBMIT</button></td>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
+      </form>
+    </main>
+  </body>
+</html>
