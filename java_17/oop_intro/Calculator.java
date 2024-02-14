@@ -1,7 +1,7 @@
 package java_17.oop_intro;
 
-import java_17.oop_intro.Carpet;
-import java_17.oop_intro.Floor;
+// import java_17.oop_intro.Carpet;
+// import java_17.oop_intro.Floor;
 
 public class Calculator {
     private Floor floor;
