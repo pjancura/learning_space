@@ -2,7 +2,8 @@ package java_17.oop_inheritance;
 
 public class Animal {
     
-    private String type;
+    // protected means that type is conditionally encapsulated
+    protected String type;
     private String size;
     private double weight;
 

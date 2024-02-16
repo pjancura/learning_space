@@ -10,7 +10,11 @@ public class PartTwo {
         Dog retriever = new Dog("labrador Retriever", 65, "Floppy", "Swimmer");
         doAnimalStuff(retriever, "slow");
 
+        Dog wolf = new Dog("Wolf", 80);
+        doAnimalStuff(wolf, "fast");  
         
+        Fish goldie = new Fish("Goldfish", 0.25, 2, 3);
+        doAnimalStuff(goldie, "fast");
     }
 
     public static void doAnimalStuff(Animal animal, String speed) {

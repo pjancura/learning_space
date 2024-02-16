@@ -15,7 +15,7 @@
 
 // fields should be private ths is called encapsulation
 //    encapsulation-> bundling of behacior and attributes on a single object
-//          OR practice of hiding fields, and some methods, from public access
+//          OR practice of hiding fields, and some methods, from public access 
 
 package java_17.oop_intro;
 

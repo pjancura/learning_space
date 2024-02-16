@@ -29,13 +29,42 @@ public class Dog extends Animal {
     }
 
     public void makeNoise() {
-        System.out.println("Bark!");
+        if (type == "Wolf") {
+            System.out.println("Ow Woooooo!");
+        } else {
+            bark();
+        }
+        System.out.println();
     }
 
     @Override
     public void move(String speed) {
         super.move(speed);
         System.out.println("Dogs walk, run, and wag their tail");
+        if (speed == "slow") {
+            walk();
+            wagTail();
+        } else {
+            run();
+            bark();
+        }
+        System.out.println();
+    }
+
+    // this method is private because it will only called from inside the class
+    private void bark() {
+        System.out.println("Woof!");
     }
     
+    private void run() {
+        System.out.println("Dog running ");
+    }
+
+    private void walk() {
+        System.out.println("Dog walking ");
+    }
+
+    private void wagTail() {
+        System.out.println("Wagging tail ");
+    }
 }
