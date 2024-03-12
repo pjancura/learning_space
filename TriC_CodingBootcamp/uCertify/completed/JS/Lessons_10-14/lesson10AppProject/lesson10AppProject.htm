@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Lesson 10 Application Project</title>
+
+    <script language="javascript">
+      <!--
+        let cardType;
+        let cardNum;
+        let expDate;
+
+      function validate(form) {
+        if (cardType == undefined || cardNum == undefined){
+            return false
+        } else {
+            alert("Thank you for your submission")
+        }
+      }
+
+      let ccType = () => {
+        cardType = ccForm.ccard.value;
+        console.log(cardType);
+      }
+      let cardValid = (num) => {
+        cardNum = num;
+        let numArray = num.split("");
+
+        if (cardType == undefined){
+            alert("Please select your card type first.")
+        } else if (cardType == "visa") {
+            
+            if (num.length < 16){
+                alert("You are missing a few digits");
+            }
+            if (num.length > 16){
+                alert("You have too many digits");
+            }
+            if (numArray[0] != "4"){
+                alert("Check your first number");
+            }
+        } else if (cardType == "mc") {
+            if (num.length < 16){
+                alert("You are missing a few digits");
+            }
+            if (num.length > 16){
+                alert("You have too many digits");
+            }
+            if (numArray[0] != "5"){
+                alert("Check your first number");
+            } 
+        } else if (cardType == "amex") {
+            if (num.length < 15){
+                alert("You are missing a few digits");
+            }
+            if (num.length > 15){
+                alert("You have too many digits");
+            }
+            if (numArray[0] != "3"){
+                alert("Check your first number");
+            }  
+        } else {
+            return;
+        }
+      } 
+
+      window.onload = () => {
+       
+      }
+
+      //-->
+    </script>
+  </head>
+
+  <body>
+    <h3>CIW JavaScript Specialist</h3>
+    <hr />
+    <form name="ccForm">
+      <p>
+        <input type="radio" name="ccard" value="visa" onchange="ccType()"/>
+        Visa
+      </p>
+      <p>
+        <input type="radio" name="ccard" value="mc" onchange="ccType()"/>
+        MasterCard
+      </p>
+      <p>
+        <input type="radio" name="ccard" value="amex" onchange="ccType()"/>
+        American Express
+      </p>
+      <p>
+        Card #
+        <input type="text" name="number" onblur="cardValid(this.value)"/>
+      </p>
+      <p>
+        Exp Date:
+        <select name="expMo">
+          <option value="0">Jan</option>
+          <option value="1">Feb</option>
+          <option value="2">Mar</option>
+          <option value="3">Apr</option>
+          <option value="4">May</option>
+          <option value="5">Jun</option>
+          <option value="6">Jul</option>
+          <option value="7">Aug</option>
+          <option value="8">Sep</option>
+          <option value="9">Oct</option>
+          <option value="10">Nov</option>
+          <option value="11">Dec</option>
+        </select>
+
+        <select name="expYr">
+          <option value="2011">2011</option>
+          <option value="2012">2012</option>
+          <option value="2013">2013</option>
+          <option value="2014">2014</option>
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+        </select>
+      </p>
+
+      <input type="button" value="Check Form" onClick="validate(this.form)" />
+      <input type="reset" value="Reset Form" />
+    </form>
+  </body>
+</html>
