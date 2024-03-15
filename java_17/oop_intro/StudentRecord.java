@@ -1,7 +1,7 @@
 // this is all the more code that is needed when setting up a record object
 // the part in parentheses is called the "record header"
 // record header -> consists of record components, a comma delimited list of components
-//      for each component Java a field with the smae name and declared type as the record component
+//      for each component Java generates a field with the same name and declared type as the record component
 //      the field is declared private and final
 //      the field is sometimes referred to as a component field
 //      generates a toSTring method that prints out each attribute in a formatted String
