@@ -1,6 +1,6 @@
 package java_17.generics.generic_end;
 
-import java.util.List;
+
 import java.util.Random;
 
 public class Student implements QueryItem, Comparable<Student> {
@@ -13,14 +13,14 @@ public class Student implements QueryItem, Comparable<Student> {
 
     private static String[] firstName = {"Ann", "Bill", "Cathy", "John", "Time"};
     private static String[] courses = {"C++", "Java", "Python"};
-    static int idStart = 1;
+    private static int ID_START = 1;
 
     public Student() {
         int leastNameIndex = random.nextInt(65, 91);
         this.name = firstName[random.nextInt(5)] + " " + (char) leastNameIndex;
         this.course = courses[random.nextInt(3)];
         this.yearStarted = random.nextInt(2024, 2029);
-        this.id = "000000".substring(String.valueOf(idStart).length()) + String.valueOf(idStart++);
+        this.id = "000000".substring(String.valueOf(ID_START).length()) + String.valueOf(ID_START++);
     }
 
     @Override
