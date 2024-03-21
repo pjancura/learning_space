@@ -1,4 +1,4 @@
-package java_17.nested_classes;
+package java_17.nested_classes.static_nested;
 
 import java.util.Comparator;
 
@@ -27,6 +27,10 @@ public class Employee {
     private int employeeId;
     private String name;
     private int yearStarted;
+
+    public Employee() {
+        
+    }
 
     public Employee(int employeeId, String name, int yearStarted) {
         this.employeeId = employeeId;

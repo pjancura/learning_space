@@ -1,4 +1,4 @@
-package java_17.nested_classes;
+package java_17.nested_classes.static_nested;
 
 import java.util.ArrayList;
 import java.util.List;
