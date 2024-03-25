@@ -89,7 +89,7 @@
 	   // start function 
 	   function startFcn() {
 			if(started == false){
-				timer = setInterval( displayOutput, timerLength);
+				timer = setTimeout( displayOutput, timerLength);
 				console.log("timer started");
 				started = true;
 			} else {
