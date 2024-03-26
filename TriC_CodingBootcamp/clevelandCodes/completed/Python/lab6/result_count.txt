@@ -1,5 +1,0 @@
-There are 1002 lines of data.
- There are 471 males in the data.
- There are 529 females in the data.There are 1002 lines of data.
- There are 471 males in the data.
- There are 529 females in the data.

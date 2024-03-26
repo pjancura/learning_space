@@ -1,7 +1,0 @@
-DATE: 05/09/23
-______Totals_________
-Lines input: 997
-Total Payroll Amount: 583986.6
-
-Starttime: 19:51:09
-Endtime: 19:51:09
