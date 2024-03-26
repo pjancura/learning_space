@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function blueVerdanaFont() {
+                return "<span style='font-face:Verdana;color:blue;font-size:2em'>" + this.toString() + "</span>";
+            }
+            String.prototype.blueV = blueVerdanaFont;
+            String.prototype.blueVDescription = "The blueV() function creates blue Verdana font.";
+        </script>
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            document.write("The following text is " + "blue Verdana".blueV() + " font.");
+            document.write("<p>" + "blueV".blueVDescription + "</p>");
+            String.prototype.blueVDescription = "The blueV() function creates blue Verdana font.";
+        </script>
+    </body>
+</html>

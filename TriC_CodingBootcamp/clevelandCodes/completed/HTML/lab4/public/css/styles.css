@@ -1,0 +1,57 @@
+body {
+  background-color: black;
+  justify-content: center;
+  padding: 10px 50px 50px 50px;
+}
+.tiledBG {
+  background-image: url("../images/bg-pattern3.jpg");
+  /* background-image: url("../images/bg-gradient.png"); */
+  background-repeat: repeat repeat;
+  padding: 10px;
+}
+h1 {
+  text-align: center;
+}
+table,
+tr,
+th,
+td {
+  border: solid darkred 4px;
+  border-collapse: collapse;
+}
+table {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+}
+img {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+th.tableBanner {
+  background-color: white;
+  padding: 5px 10px 5px 10px;
+}
+td {
+  background-color: transparent;
+  padding: 5px;
+  margin: 0;
+  vertical-align: bottom;
+}
+p {
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0;
+  padding: 2px 0 2px 0;
+}
+.footer {
+  background-color: transparent;
+  color: white;
+  text-align: center;
+}
+a:visited{
+    color: teal;
+}
