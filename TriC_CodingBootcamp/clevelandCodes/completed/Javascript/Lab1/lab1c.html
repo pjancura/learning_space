@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h2>javaScript Lab 1B</h2>
+    <script>
+        //this isn't working correctly , you get one more guess than what you entered
+            let secretNum = "q";
+            let minNum;
+            let maxNum;
+            let userInput;
+            let userNum;
+            let totalGuesses = parseInt(prompt("How many?"));
+            userInput = prompt("Enter a number between 1 and 100");
+            userNum = parseInt(userInput);            
+            let i = 0; 
+            for(let counter =1; counter <= totalGuesses; counter++) {
+                
+                console.log(typeof(secretNum) + " " + secretNum);
+                console.log(typeof(userInput) + " " + userInput);
+                console.log(typeof(userNum) + " " + userNum); 
+                if(userNum >= 101 || userNum <= 0){
+                    console.log("Not in Range");
+                    i++;
+                    document.write(`Guess ${i} was: ${userNum} </br>`);
+                    userInput = prompt("Enter an integer from 1 to 100. Guess again: ");
+                    userNum = parseInt(userInput);                    
+                } else if (userNum <= 100 && userNum >= 1 ){                                       
+                    if (minNum == undefined){
+                        console.log("1st good input");
+                        i++;
+                        minNum = userNum;
+                        maxNum = userNum;                        
+                        document.write(`Guess ${i} was: ${userNum} </br>`);
+                        userInput = prompt("Guess again: ");
+                        userNum = parseInt(userInput);                        
+                    } else if (userNum >= maxNum){
+                        console.log("Set New MaxNum");
+                        i++;
+                        maxNum = userNum;
+                        document.write(`Guess ${i} was: ${userNum} </br>`);                        
+                        userInput = prompt("Guess again: ");
+                        userNum = parseInt(userInput);                        
+                    }   else if (userNum <= minNum){
+                        console.log("set new minNum");
+                        i++;
+                        minNum = userNum;
+                        document.write(`Guess ${i} was: ${userNum} </br>`);
+                        userInput = prompt("Guess again: ");
+                        userNum = parseInt(userInput);                        
+                    } else if (userNum > minNum || userNum < maxNum){
+                        console.log("just another number");
+                        i++;
+                        document.write(`Guess ${i} was: ${userNum} </br>`);
+                        userInput = prompt("Guess again: ");
+                        userNum = parseInt(userInput);                        
+                    };
+                } else if (isNaN(userNum) == true){
+                    console.log("NaN");
+                    userInput = prompt("Guess a real integer from 1 to 100: ");
+                    userNum = parseInt(userInput);
+                } else {
+                    break;
+                }
+            } ;
+            alert(`Thanks for playing!`); 
+            document.write(`Total guesses: ${i}<br/>`);
+            document.write(`Minimum value you entered: ${minNum} <br/>`);
+            document.write(`Maximum value between 1 and 100 you entered: ${maxNum}`);
+            
+                         
+            
+    </script>
+</body>
+</html>

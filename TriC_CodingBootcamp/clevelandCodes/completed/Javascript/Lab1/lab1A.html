@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        document.write("<h2>The Average Test Score</h2>");
+        var score1 = parseInt(prompt ("First score:"));
+        var score2 = parseInt(prompt("Second score:"));
+        var score3 = parseInt(prompt("Third score:"));
+        document.write(`Here are the score ${score1}, ${score2}, and ${score3}`);
+        var sum = score1 + score2 + score3;
+        document.write("<br/>Total test score: " + (sum));
+        var average = sum/3
+        document.write(`<br/> Average test score: ${average}`);
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+Service workers: 
+    - JS running in a background process even if the application is closed
+    - they allow us to cache some files for offline features
+
+Progressive means that we can progressively enhance our web app
+
+Caching (Cache API):
+    - Allows you to store data on the device so that it can be used offline
+    - This is why we are learning about service workers
+    - the Cache API creates a separate cache storage in the browser that is managed by me the developer
+        - it stores key (requests) : value (responses) pairs
+    - this cache will store the data until internet connection is regained by the user
+        - the information is then stored on the server for later retrieval and use
+    - service workers and normal javascript can both access the cache
+        - but service workers run in the background and is always there even when the internet connection is severed
+        - the service worker creates a pseudo network connection (can be thought of) determining where the information is retrieved from
+
+    - the first example of caching will cache files when the service worker is installed
+        - FILES: index.html, app.js, app.css, image.png (and other needed scripts and styling files)
+    
+    - the files that are cached (at least to begin with) should be thought of as URL's not paths.
+        - "/index.html" does not mean you have access to "/"
+
+    - Dynamic Caching
+        - this isn't about storing dynamic content necessarily, but caching files as is pertinent
+        - this prevents the initial install from getting too bloated
+        - the response from a url.request can only be used once
+            - if you are caching the response as well as returning it
+            - use response.clone() to make a copy of the response
+
+    - Cache Versioning
+        - a method of forcing your sw.js file to update on the browser is to add a version # to your cache 'folder'
+        - however this creates a problem of having old files and new ones
+        - you will need to clean up old 'folders' in the cache for this to work properly
+
+    - Clean up Caches
+        - do not do this at the install event
+        - do it at the activation stage 
+        - this is because some files may be being used still during the install stage 
+
+    - adding a removing items from the cached can be done from files outside of sw.js (the service worker)
+
+    - You should add a page (.html) that is a fallback so that you can redirect users to a cached page
+        - this is for when users navigate to a page that is only dynamically cached
+        - the fallback.html should be a part of your APPSHELL
+
+    - Strategies for utilizing Cache
+        - Cache only - can't get resources that were never loaded into cache
+        - Network only - doesn't utilize the cache and can't be utilized offline
+        - Network First - good, but doesn't utilize the speed that accessing the cache does
+        - Cache First - best, but can't always account for network timeouts and drops in network connection
+            - there is a simultaneous call to the cache and the sw.js when the page is asked to loaded
+            - this way the sw.js can return the fetched resource and cache the resource for later use
+        
