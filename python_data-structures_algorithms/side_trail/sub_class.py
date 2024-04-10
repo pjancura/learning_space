@@ -37,7 +37,7 @@ if __name__ == "__main__":
     
 
     new_dict = {"1": 1, "2": 2, "3": 3}
-    print(new_dict["1"])
+    print(list(new_dict.keys()))
 
     # print("1" + 2)
 

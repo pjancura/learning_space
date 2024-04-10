@@ -33,7 +33,6 @@ fetch(url)
     })
     .then(data => {
       isNetwork = true;
-      console.log(data);
       console.log("Data from network: " + data.origin);
       box.style.height = data.origin.substr(0, 2) * 5 + 'px';
   })
@@ -46,15 +45,15 @@ if ('caches' in window) {
     }
   })
   .then(data => {
-      console.log('isNetwork: ' + isNetwork);
-      if (!isNetwork && data) {
-        console.log("Data from cache: ", data.origin);
+      // console.log('isNetwork: ' + isNetwork);
+      console.log("Data from cache: ", data.origin);
+      if (!isNetwork) {
         box.style.height = data.origin.substr(0, 2) * 5 + 'px';
       }
     })
 }
 
-// 1) Identify the strategy we currently use in the Service Worker (for caching)     --- INITIALLY IT IS A NETWORK FIRST STRATEGY
+// 1) Identify the strategy we currently use in the Service Worker (for caching)     --- INITIALLY IT IS A NETWORK FIRST STRATEGY WITH CACHE FALLBACK
 // 2) Replace it with a "Network only" strategy => Clear Storage (in Dev Tools), reload & try using your app offline
 // 3) Replace it with a "Cache only" strategy => Clear Storage (in Dev Tools), reload & try using your app offline
 // 4) Replace it with "Network, cache fallback" strategy =>  => Clear Storage (in Dev Tools), reload & try using your app offline

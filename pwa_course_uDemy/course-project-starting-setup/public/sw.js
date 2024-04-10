@@ -19,6 +19,19 @@ const APPSHELL = [
     'https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.indigo-pink.min.css'
 ];
 
+function trimCache(cacheName, maxItems) {                   // this could be implemented in many different locations, common ones are on install and on activate, because they do not happen as often, but I will implement mine in our fetch request, look up cache limits for browsers
+    caches.open(cacheName)
+        .then(cache => {
+            return cache.keys()
+                .then(trimCache(cacheName, maxItems));
+        })
+        .then(keys => {
+            if (keys.length > maxItems) {
+                cache.delete(keys[0])
+            }
+        })
+}
+
 // install and activate are triggered by the browser
 // Initialize deferredPrompt for use later to show browser install prompt.
 self.addEventListener('install', function(event) {
@@ -59,6 +72,17 @@ self.addEventListener('activate', function(event) {
 // })
 
 
+// checks if url is in our APPSHELL array
+function isInArray(string, array) {
+    var cachePath;
+    if (string.indexOf(self.origin) === 0) { // request targets domain where we serve the page from (i.e. NOT a CDN)
+      console.log('matched ', string);
+      cachePath = string.substring(self.origin.length); // take the part of the URL AFTER the domain (e.g. after localhost:8080)
+    } else {
+      cachePath = string; // store the full request (for CDNs)
+    }
+    return array.indexOf(cachePath) > -1;
+  }
 
 self.addEventListener('fetch', (event) => {
     let url = 'https://httpbin.org/get';
@@ -69,6 +93,7 @@ self.addEventListener('fetch', (event) => {
                 .then(cache => {
                     return fetch(event.request)
                         .then(res => {
+                            jtrimCache(DYNAMIC_CACHE_VERSION, 8);
                             cache.put(event.request, res.clone());
                             return res;
                         })
@@ -76,7 +101,8 @@ self.addEventListener('fetch', (event) => {
         )
         // the following else if block is an example of a cache only strategy
         //      this is really only useful for your APPSHELL
-    } else if (new RegExp('//b' + APPSHELL.join('//b//b') + '//b').test(event.requst.url)) {       
+    // } else if (new RegExp('//b' + APPSHELL.join('//b//b') + '//b').test(event.requst.url)) {       
+    } else if (isInArray(event.request.url, APPSHELL)) {
         event.respondWith(
             caches.match(event.request)
         )
@@ -101,7 +127,7 @@ self.addEventListener('fetch', (event) => {
     
                             return caches.open(STATIC_CACHE_VERSION)            // this allows us to show something meaningful if a page wasn't cached and redirect the user
                                 .then(cache => {
-                                    if (event.request.url.indexOf('/help')) {
+                                    if (event.request.headers.get('accept').includes('text/html')) {        // more inclusive way to implement fallback cache items
                                         return cache.match('/offline.html');
                                     }
                                 })

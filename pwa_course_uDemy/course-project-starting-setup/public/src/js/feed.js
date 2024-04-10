@@ -80,10 +80,19 @@ function createCard() {
 
 // lines 83 - 111 
 // are an implementation of a cache first load strategy 
-let url = 'https://httpbin.org/get';
+let url = 'https://httpbin.org/post';
 let networkDataReceived = false;
 
-fetch(url)
+fetch(url, {
+  method: 'POST',               // POST doesn't work with a cache only approach
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body: JSON.stringify({
+    message: 'Some message'
+  })
+})
   .then(function(res) {
     return res.json();
   })

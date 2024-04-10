@@ -53,7 +53,7 @@ self.addEventListener('activate', function(event) {
 // })
 
 
-// --------------              NETWORK WITH CACHE FALLBACK STRATEGY
+// --------------             NETWORK WITH CACHE FALLBACK STRATEGY
 // self.addEventListener('fetch', function(event) {
 //   event.respondWith(
 //     fetch(event.request)
@@ -152,6 +152,15 @@ self.addEventListener('activate', function(event) {
 // })
 
 // --------------              CACHE PREFERRED with 'ROUTING'
+function isInArray(string, array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === string) {
+      return true;
+    }
+  }
+  return false;
+}
+
 self.addEventListener('fetch', event => {
   // Cache then network for url
   let url = 'https://httpbin.org/ip';
@@ -179,7 +188,8 @@ self.addEventListener('fetch', event => {
         })
     )
   // cache only
-  } else if (new RegExp('//b/' + APPSHELL.join('//b//b') + '//b').test(event.request.url)) {
+  // } else if (new RegExp('\\b' + APPSHELL.join('\\b\\b') + '\\b').test(event.request.url)) {
+  } else if (isInArray(event.request.url, APPSHELL)) {
     console.log('ended in else if');
     event.respondWith(caches.match(event.request));
   // cache, with network fallback for dynamic cache
