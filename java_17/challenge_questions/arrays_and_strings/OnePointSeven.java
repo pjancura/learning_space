@@ -20,9 +20,10 @@ public class OnePointSeven {
             System.out.println(Arrays.toString(arr));
         }
 
-        int[][] rotatedMatrix2 = rotateMatrix(rotatedMatrix);
+        // int[][] rotatedMatrix2 = rotateMatrixInPlace(rotatedMatrix);
+        rotateMatrixInPlace(rotatedMatrix);
         System.out.println("\nAfter 2: ");
-        for (int[] arr : rotatedMatrix2) {
+        for (int[] arr : rotatedMatrix) {
             System.out.println(Arrays.toString(arr));
         }
     }
