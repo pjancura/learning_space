@@ -19,18 +19,18 @@ const APPSHELL = [
     'https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.indigo-pink.min.css'
 ];
 
-function trimCache(cacheName, maxItems) {                   // this could be implemented in many different locations, common ones are on install and on activate, because they do not happen as often, but I will implement mine in our fetch request, look up cache limits for browsers
-    caches.open(cacheName)
-        .then(cache => {
-            return cache.keys()
-                .then(trimCache(cacheName, maxItems));
-        })
-        .then(keys => {
-            if (keys.length > maxItems) {
-                cache.delete(keys[0])
-            }
-        })
-}
+// function trimCache(cacheName, maxItems) {                   // this could be implemented in many different locations, common ones are on install and on activate, because they do not happen as often, but I will implement mine in our fetch request, look up cache limits for browsers
+//     caches.open(cacheName)
+//         .then(cache => {
+//             return cache.keys()
+//                 .then(trimCache(cacheName, maxItems));
+//         })
+//         .then(keys => {
+//             if (keys.length > maxItems) {
+//                 cache.delete(keys[0])
+//             }
+//         })
+// }
 
 // install and activate are triggered by the browser
 // Initialize deferredPrompt for use later to show browser install prompt.
@@ -91,12 +91,12 @@ self.addEventListener('fetch', (event) => {
         event.respondWith(
             caches.open(DYNAMIC_CACHE_VERSION)
                 .then(cache => {
-                    return fetch(event.request)
-                        .then(res => {
-                            jtrimCache(DYNAMIC_CACHE_VERSION, 8);
-                            cache.put(event.request, res.clone());
-                            return res;
-                        })
+                    return fetch(event.request);
+                        // .then(res => {
+                        //     trimCache(DYNAMIC_CACHE_VERSION, 8);
+                        //     cache.put(event.request, res.clone());
+                        //     return res;
+                        // })
                 })
         )
         // the following else if block is an example of a cache only strategy
