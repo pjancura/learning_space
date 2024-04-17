@@ -45,6 +45,7 @@
 
       let speedChange = () => {
         let speedValue = document.getElementById("speedControl").value;
+        console.log(speedValue);
         let newSpeed = speedValue * 200;
         clearInterval(timer);
         timer = setInterval(nextSlide, newSpeed);
