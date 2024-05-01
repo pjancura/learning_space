@@ -4,7 +4,10 @@ var closeCreatePostModalButton = document.querySelector('#close-create-post-moda
 var sharedMomentsArea = document.querySelector('#shared-moments');
 
 function openCreatePostModal() {
-  createPostArea.style.display = 'block';
+  // createPostArea.style.display = 'block';
+  setTimeout(() => createPostArea.style.transform = 'translateY(0)',
+    30);
+  
   if (deferredPrompt) {
     deferredPrompt.prompt();
 
@@ -32,7 +35,8 @@ function openCreatePostModal() {
 }
 
 function closeCreatePostModal() {
-  createPostArea.style.display = 'none';
+  // createPostArea.style.display = 'none';
+  createPostArea.style.transform = 'translateY(100vh)';
 }
 
 shareImageButton.addEventListener('click', openCreatePostModal);
@@ -67,7 +71,6 @@ function createCard(data) {
   cardTitle.style.backgroundImage = `url('${data.image}')`;
   // cardTitle.style.backgroundImage = 'url(' + data.image + ')';        // i believe this line and the one above are the same, just different syntaxes
   cardTitle.style.backgroundSize = 'cover';
-  cardTitle.style.height = '180px';
   cardWrapper.appendChild(cardTitle);
   var cardTitleTextElement = document.createElement('h2');
   cardTitleTextElement.style.color = 'white';
@@ -97,8 +100,7 @@ function updateUI(data) {
 }
 
 
-// lines 83 - 111 
-// are an implementation of a cache first load strategy 
+
 let url = 'https://pwagram-f2320-default-rtdb.firebaseio.com/posts.json';
 let networkDataReceived = false;
 
@@ -127,21 +129,28 @@ fetch(url,
     updateUI(dataArray);
 });
 
-if ('caches' in window) {
-  caches.match(url)
-    .then(response => {
-      if (response) {
-        return response.json();
+if ('indexedDB' in window) {
+  readAllData('posts')              // pull data from indexedDB
+    .then( (data) => {
+      if(!networkDataReceived) {
+        console.log('From cache', data);
+        updateUI(data);
       }
     })
-    .then(data => {
-      console.log('From cache ', data);
-      if (!networkDataReceived) {
-        let dataArray = [];
-        for (let key in data) {
-          dataArray.push(data[key]);
-        }
-        updateUI(dataArray);
-      }
-    })
+  // caches.match(url)
+  //   .then(response => {
+  //     if (response) {
+  //       return response.json();
+  //     }
+  //   })
+  //   .then(data => {
+  //     console.log('From cache ', data);
+  //     if (!networkDataReceived) {
+  //       let dataArray = [];
+  //       for (let key in data) {
+  //         dataArray.push(data[key]);
+  //       }
+  //       updateUI(dataArray);
+  //     }
+  //   })
 }

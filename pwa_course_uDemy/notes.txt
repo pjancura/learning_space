@@ -1,3 +1,8 @@
+OUTSIDE RESOURCES:
+    - DATABASE: created with Firebase
+
+
+
 Service workers: 
     - JS running in a background process even if the application is closed
     - they allow us to cache some files for offline features
@@ -52,3 +57,22 @@ Caching (Cache API):
             - there is a simultaneous call to the cache and the sw.js when the page is asked to loaded
             - this way the sw.js can return the fetched resource and cache the resource for later use
         
+    - Caching Dynamic Content 
+        - IndexedDB can be utilized to store the content of your website
+        - this is not resources like - index.html, app.js, index.css
+        - IndexedDB is a key-value database 
+
+- IndexedDB
+    - it is a transactional key-value database running in the browser
+        - transactional => if one Action within a transaction fails, none of the actions of that transaction are applied
+            - this maintains database integrity
+    - files, unstructure data, or blobs can all be stored in IDB 
+    - can be accessed asynchronously (good for the service worker)
+    - generally only one database per app
+    - object store => tables
+    - stored object => key / value pairs
+    - has wide browser support
+    - and can be accessed with plain javascript
+    - IndexedDB Promised => a library that changes IDB's callback structure to a promise structure
+    
+    

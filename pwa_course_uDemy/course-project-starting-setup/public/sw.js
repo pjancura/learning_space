@@ -1,13 +1,18 @@
 // a service worker does not have DOM access
 
-const STATIC_CACHE_VERSION = 'static_v9';
+importScripts('/src/js/idb.js');
+importScripts('/src/js/utility.js');
+
+// use version no.'s with cache's because it will cause the service worker to update the cache files
+const STATIC_CACHE_VERSION = 'static_v12';
 const DYNAMIC_CACHE_VERSION = 'dynamic_v4';
 const APPSHELL = [
     '/', 
     '/index.html',
     '/offline.html', 
     '/src/js/app.js', 
-    '/src/js/feed.js', 
+    '/src/js/feed.js',
+    '/src/js/idb.js', 
     '/src/js/promise.js', 
     '/src/js/fetch.js', 
     '/src/js/material.min.js',
@@ -18,6 +23,7 @@ const APPSHELL = [
     'https://fonts.googleapis.com/icon?family=Material+Icons',
     'https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.indigo-pink.min.css'
 ];
+
 
 // function trimCache(cacheName, maxItems) {                   // this could be implemented in many different locations, common ones are on install and on activate, because they do not happen as often, but I will implement mine in our fetch request, look up cache limits for browsers
 //     caches.open(cacheName)
@@ -85,19 +91,45 @@ function isInArray(string, array) {
   }
 
 self.addEventListener('fetch', (event) => {
-    let url = 'https://httpbin.org/get';
+    let url = 'https://pwagram-f2320-default-rtdb.firebaseio.com/posts.json';
+    console.log(`requesting ${url}: ${event.request.url.indexOf(url)}`);
     
-    if (event.request.url.indexOf(url) > -1) {
+    if (event.request.url.indexOf(url) > -1 && navigator.online) {                              // this IF statement will only run for a regular page reload...not the full resource reload
+        console.log('about to fetch posts from DB');
         event.respondWith(
-            caches.open(DYNAMIC_CACHE_VERSION)
-                .then(cache => {
-                    return fetch(event.request);
-                        // .then(res => {
-                        //     trimCache(DYNAMIC_CACHE_VERSION, 8);
-                        //     cache.put(event.request, res.clone());
-                        //     return res;
-                        // })
+            // caches.open(DYNAMIC_CACHE_VERSION)
+            //     .then(cache => {
+            fetch(event.request)
+                .then(res => {
+                //     trimCache(DYNAMIC_CACHE_VERSION, 8);
+                //     cache.put(event.request, res.clone());
+                    let clonedRes = res.clone();
+                    clearAllData('posts')
+                        .then(() => {
+                            console.log('[IndexedDB] Data cleared');
+                            return clonedRes.json()
+                        })
+                        .then((data) => {
+                            console.log("about to write to indexedDB");
+                            for (let key in data) {
+                                console.log(`[IndexedDB Writer]: Writing to database... \n${JSON.stringify(data[key])}`);
+                                writeData('posts', data[key])
+                                    .then(() => {
+                                        deleteItemFromData('posts', key);
+                                    });
+                                // dbPromise
+                                //     .then((db) => {
+                                //         let tx = db.transaction('posts', 'readwrite');
+                                //         let store = tx.objectStore('posts');
+                                //         store.put(data[key]);
+                                //         console.log(`Object placed in IndexedDB:\n\t\t${data[key]}`);
+                                //         return tx.complete;      // lets the program know that the transaction is complete
+                                //     })
+                            }
+                        })
+                    return res;
                 })
+                // })
         )
         // the following else if block is an example of a cache only strategy
         //      this is really only useful for your APPSHELL
