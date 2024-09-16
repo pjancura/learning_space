@@ -4,7 +4,7 @@ importScripts('/src/js/idb.js');
 importScripts('/src/js/utility.js');
 
 // use version no.'s with cache's because it will cause the service worker to update the cache files
-const STATIC_CACHE_VERSION = 'static_v12';
+const STATIC_CACHE_VERSION = 'static_v15';
 const DYNAMIC_CACHE_VERSION = 'dynamic_v4';
 const APPSHELL = [
     '/', 
@@ -90,11 +90,12 @@ function isInArray(string, array) {
     return array.indexOf(cachePath) > -1;
   }
 
-self.addEventListener('fetch', (event) => {
+  
+  self.addEventListener('fetch', (event) => {
     let url = 'https://pwagram-f2320-default-rtdb.firebaseio.com/posts.json';
-    console.log(`requesting ${url}: ${event.request.url.indexOf(url)}`);
-    
-    if (event.request.url.indexOf(url) > -1 && navigator.online) {                              // this IF statement will only run for a regular page reload...not the full resource reload
+    // console.log(`requesting ${url}: ${event.request.url.indexOf(url)}`);
+    // console.log('[Navigator Status] onLine = ', navigator.onLine);
+    if (event.request.url.indexOf(url) > -1 && navigator.onLine) {                              // this IF statement will only run for a regular page reload...not the full resource reload
         console.log('about to fetch posts from DB');
         event.respondWith(
             // caches.open(DYNAMIC_CACHE_VERSION)
@@ -110,13 +111,13 @@ self.addEventListener('fetch', (event) => {
                             return clonedRes.json()
                         })
                         .then((data) => {
-                            console.log("about to write to indexedDB");
                             for (let key in data) {
-                                console.log(`[IndexedDB Writer]: Writing to database... \n${JSON.stringify(data[key])}`);
+                                console.log(`[IndexedDB] Writing to database... \n${JSON.stringify(data[key])}`);
                                 writeData('posts', data[key])
-                                    .then(() => {
-                                        deleteItemFromData('posts', key);
-                                    });
+                                    // .then(() => {
+                                    //     console.log("[IndexedDB] deleting \n", key);
+                                    //     deleteItemFromData('posts', key);
+                                    // });
                                 // dbPromise
                                 //     .then((db) => {
                                 //         let tx = db.transaction('posts', 'readwrite');
@@ -171,4 +172,42 @@ self.addEventListener('fetch', (event) => {
     // console.log(event);
     // console.log(caches);
 })
+
+self.addEventListener('sync', (event) => {
+    console.log('[Service Worker] Background syncing', event);
+    if (event.tag === 'sync-new-posts') {
+        console.log('[Service Worker] Syncing new Posts');
+        event.waitUntil(
+            readAllData('sync-posts')
+                .then((data) => {
+                    let url = 'https://pwagram-f2320-default-rtdb.firebaseio.com/posts.json';
+                    for (let dt of data) {
+                        fetch(url, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'applicaiton/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                id: dt.id,
+                                title: dt.title,
+                                location: dt.location,
+                                image: 'https://firebasestorage.googleapis.com/v0/b/pwagram-f2320.appspot.com/o/sf-boat.jpg?alt=media&token=d1f2569b-5d1e-4e0a-996b-44d5909a661b'
+                            })
+                        })
+                        .then((res) => {
+                            console.log('Sent data', res);
+                            if (res.ok) {
+                                deleteItemFromData('sync-posts', dt.id);
+                            }
+                        })
+                        .catch((err) => {
+                            console.log('Error while sending data', err);
+                        })
+                    }
+                })
+        )
+    }
+})
+
 

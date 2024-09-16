@@ -2,6 +2,9 @@ var shareImageButton = document.querySelector('#share-image-button');
 var createPostArea = document.querySelector('#create-post');
 var closeCreatePostModalButton = document.querySelector('#close-create-post-modal-btn');
 var sharedMomentsArea = document.querySelector('#shared-moments');
+let form = document.getElementsByTagName("form")[0];
+let titleInput = document.getElementById("title");
+let locationInput = document.getElementById("location");
 
 function openCreatePostModal() {
   // createPostArea.style.display = 'block';
@@ -154,3 +157,61 @@ if ('indexedDB' in window) {
   //     }
   //   })
 }
+
+function sendData() {     // this is a fallback for when the browser is lacking background sync
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'applicaiton/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      id: new Date().toISOString(),
+      title: titleInput.value,
+      location: locationInput.value,
+      image: 'https://firebasestorage.googleapis.com/v0/b/pwagram-f2320.appspot.com/o/sf-boat.jpg?alt=media&token=d1f2569b-5d1e-4e0a-996b-44d5909a661b'
+    })
+  })
+    .then((res) => {
+      console.log('Sent data', res);
+      updateUI();
+    })
+}
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  if (titleInput.value.trim() === '' || locationInput.value.trim() === '') {
+    alert('Please enter valid data!');
+    return;
+  }
+
+  closeCreatePostModal();
+
+  console.log(`[IndexedDB] SyncManager ${'SyncManager' in window}, serviceWorker: ${'serviceWorker' in navigator}`);
+  if ('serviceWorker' in navigator && 'SyncManager' in window) {
+    navigator.serviceWorker.ready
+      .then((sw) => {   
+        let post = {
+          id: new Date().toISOString(),
+          title: titleInput.value,
+          location: locationInput.value
+        };
+        console.log("[Sync Data]: ", post);
+        writeData('sync-posts', post)
+          .then(() => {
+            return sw.sync.register('sync-new-posts');       // the string can be whatever I want to use to identify this sync task
+          })
+          .then(() => {
+            let snackbarContainer = document.getElementById('confirmation-toast');
+            let data = {message: 'Your Post was saved for syncing!'};
+            snackbarContainer.MaterialSnackbar.showSnackbar(data); 
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      })
+  } else {
+    sendData();
+  }
+})

@@ -75,4 +75,6 @@ Caching (Cache API):
     - and can be accessed with plain javascript
     - IndexedDB Promised => a library that changes IDB's callback structure to a promise structure
     
-    
+Sync Manager API
+    - this is the API that deal with background syncing of an app
+    - it is not supported by iOS devices
