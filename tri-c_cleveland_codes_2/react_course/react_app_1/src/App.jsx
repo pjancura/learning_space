@@ -8,8 +8,13 @@
 // import { List } from "./List"
 // import { Button } from "./Button";
 // import { ProfilePicture } from "./ProfilePicture";
-import { MyComponentSecond } from "./MyComponentSecond"
-// import { Counter } from "./Counter"
+// import { MyComponentSecond } from "./MyComponentSecond"
+import { Counter } from "./Counter"
+import Car from "./Car"
+import Foods from "./Foods"
+import Car2 from "./Car2"
+
+
 
 function App() {
 
@@ -32,8 +37,11 @@ function App() {
 
   return (
     <>
-      <MyComponentSecond/>
-      {/* <Counter/> */}
+      <Car2/>
+      <Foods/>
+      <Car/>
+      {/* <MyComponentSecond/>  */}
+      <Counter/>
       {/* <UserGreeting isLoggedIn={true} userName={"fingersmasher"}/>
       <UserGreeting isLoggedIn={false} userName={"fingersmasher"}/>
       <UserGreeting/> */}

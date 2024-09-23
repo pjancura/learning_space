@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+hr {
+  color: hsla(0, 79%, 72%, 0.289);
+}
+
+.header {
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  padding: 1em;
+  background-color: hsl(351, 85%, 66%);
+  color: #f5f5dc;
+}
+
+.header img {
+  margin-right: 1em;
+}
+
+.header h1 {
+  margin: auto 0;
+}
+
+.feed {
+  width: 80%;
+  margin: 2em auto;
+}
+
+.feed-card {
+  display: flex;
+  margin: 2em auto;
+}
+
+.feed-card img {
+  max-width: 10em;
+  border-radius: 10px;
+  margin-right: 2em;
+}
+
+.feed-card-details p {
+  font-size: 0.9em;
+}
+
+.feed-card-details-geo-info img {
+  width: 0.6em;
+  margin-right: 0.5em;
+}
+
+.feed-card-details-country {
+  margin-right: 0.5em;
+}
+
+.feed-card-details-google-hyperlink {
+  color: lightslategray;
+  text-decoration: none;
+}
+
+.feed-card-details-dates {
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+

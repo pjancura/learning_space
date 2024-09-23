@@ -9,20 +9,23 @@ export default function CardDisplay (props) {
             return (
                 <Card 
                     key={details.id}
-                    id={details.id} 
-                    imageURL={details.imageURL} 
-                    status={details.status}
-                    reviewRating={details.reviewRating}
-                    numberOfReviews={details.numberOfReviews}
-                    country={details.country}
-                    title={details.title}
-                    pricePerPerson={details.pricePerPerson}/>
+                    // id={details.id} 
+                    // imageURL={details.imageURL} 
+                    // status={details.status}
+                    // reviewRating={details.reviewRating}
+                    // numberOfReviews={details.numberOfReviews}
+                    // country={details.country}
+                    // title={details.title}
+                    // pricePerPerson={details.pricePerPerson}
+                    details={details}
+                    // {...details}
+                />
             );
         })
 
     return (
         <div className="cardDisplay">
-            {cards}
+            {cards} 
         </div>
     );
 }

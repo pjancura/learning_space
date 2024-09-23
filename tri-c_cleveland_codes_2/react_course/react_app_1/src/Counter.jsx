@@ -5,11 +5,20 @@ export function Counter () {
     const [count, setCount] = useState(0);
 
     const increment = () => {
-        setCount(count + 1);
+        // because updates are done in batches
+        // inorder for this to function like count + 3
+        // each setCount needs to update the count
+        // including an updater function in setCount means that each setCount() will update count
+        setCount(c => c + 1);
+        setCount(c => c + 1);
+        setCount(c => c + 1);
+        setCount(c => c + 1);
     }
 
     const decrement = () => {
-        setCount(count - 1);
+        setCount(c => c - 1);
+        setCount(c => c - 1);
+        setCount(c => c - 1);
     }
 
     const reset = () => {
