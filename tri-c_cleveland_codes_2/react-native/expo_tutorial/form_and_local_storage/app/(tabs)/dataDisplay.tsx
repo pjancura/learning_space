@@ -26,13 +26,12 @@ export default function DataDisplay() {
         }
         return keys as string[]
     }
-
     
     useEffect(() => {
+        setSavedValues([])
         getAllKeys().then(data => {
             console.log(`PROMISE ALLKEYS: ${data}`)
             let n = -1
-            let values : string[] = []
             data.forEach(item => {
                 getItem(item).then(data => {
                     console.log(data)
@@ -40,7 +39,7 @@ export default function DataDisplay() {
                     return data
                 }).then(data => {
                     // values.push(data.toString())
-                    setSavedValues(() => [data])                   
+                    setSavedValues(sv => [...sv, data])                   
                 })
                 ++n
             })

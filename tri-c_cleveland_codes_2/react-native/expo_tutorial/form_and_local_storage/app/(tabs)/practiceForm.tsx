@@ -1,7 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFormData } from "@/hooks/useFormData"
 
 const MyForm = () => {
   const [name, setName] = useState('');
@@ -47,7 +48,7 @@ export default MyForm;
 const styles = StyleSheet.create({
     formWrapper: {
         height: "100%",
-        marginTop: 25,
+        marginTop: Platform.OS === "android" ? 25 : 50,
         backgroundColor: "lightsteelblue",
     }
 })
