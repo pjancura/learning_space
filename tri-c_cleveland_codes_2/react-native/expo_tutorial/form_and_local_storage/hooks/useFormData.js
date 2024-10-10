@@ -14,7 +14,7 @@ export const useFormData = () => {
 };
 
 export const FormDataProvider = ({ children }) => {
-  const [submittedData, setSubmittedData] = useState();
+  const [submittedData, setSubmittedData] = useState([]);
 
   useEffect(() => {
     const loadData = async () => {

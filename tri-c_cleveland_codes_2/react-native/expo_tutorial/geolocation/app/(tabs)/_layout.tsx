@@ -4,13 +4,11 @@ import React from 'react';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { FormDataProvider } from '@/hooks/useFormData';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
-    <FormDataProvider>
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
@@ -34,17 +32,6 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="practiceForm"
-        options={{
-          title: 'Practice Form',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'document' : 'document-outline'} color={color} />
-          ),
-        }}
-      />
-
     </Tabs>
-    </FormDataProvider>
   );
 }
