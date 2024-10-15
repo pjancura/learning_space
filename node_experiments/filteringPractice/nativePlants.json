@@ -3,6 +3,7 @@
         "agastacheScrophulariifolia": {
             "scientificName": "Agastache scrophulariifolia",
             "commonName": "Purple giant hyssop",
+            "peakBloomMonths": "July, August, September",
             "bloomStart": "July",
             "bloomEnd": "September",
             "lifespan": "perennial",
@@ -21,6 +22,7 @@
         "amelanchierLaevis": {
             "scientificName": "Amelanchier laevis",
             "commonName": "Allegheny serviceberry",
+            "peakBloomMonths": "March, April, May",
             "bloomStart": "March",
             "bloomEnd": "May",
             "lifespan": "perennial",
@@ -39,6 +41,7 @@
         "asclepiasIncarnata": {
             "scientificName": "Asclepias incarnata",
             "commonName": "Swamp milkweed",
+            "peakBloomMonths": "June, July, August",
             "bloomStart": "June",
             "bloomEnd": "August",
             "lifespan": "perennial",
@@ -57,6 +60,7 @@
         "asclepiasSyriaca": {
             "scientificName": "Asclepias Syriaca",
             "commonName": "Common milkweed",
+            "peakBloomMonths":"June, July, August",
             "bloomStart": "June",
             "bloomEnd": "August",
             "lifespan": "perennial",
@@ -75,6 +79,7 @@
         "asclepiasTuberosa": {
             "scientificName": "Asclepias Tuberosa",
             "commonName": "Butterfly milkweed",
+            "peakBloomMonths":"June, July, August",
             "bloomStart": "June",
             "bloomEnd": "August",
             "lifespan": "perennial",
@@ -93,6 +98,7 @@
         "carexBebbii": {
             "scientificName": "Carex Bebbii",
             "commonName": "Bebb's sedge",
+            "peakBloomMonths":"May, June",
             "bloomStart": "May",
             "bloomEnd": "June",
             "lifespan": "perennial",
@@ -111,6 +117,7 @@
         "carexCreistatella": {
             "scientificName": "Carex Creistatella",
             "commonName": "Crested sedge",
+            "peakBloomMonths":"May, June",            
             "bloomStart": "May",
             "bloomEnd": "June",
             "lifespan": "perennial",
@@ -129,6 +136,7 @@
         "carexScoparia": {
             "scientificName": "Carex Scoparia",
             "commonName": "Broom sedge",
+            "peakBloomMonths":"May, June",            
             "bloomStart": "May",
             "bloomEnd": "June",
             "lifespan": "perennial",
@@ -147,6 +155,7 @@
         "carexVulpinoidea": {
             "scientificName": "Carex vulpinoidea",
             "commonName": "Fox sedge",
+            "peakBloomMonths": "April, May",
             "bloomStart": "April",
             "bloomEnd": "May",
             "lifespan": "perennial",
@@ -165,6 +174,7 @@
         "caenothusAmericanus": {
             "scientificName": "Ceanothus americanus",
             "commonName": "New Jersey tea",
+            "peakBloomMonths": "June, July",
             "bloomStart": "June",
             "bloomEnd": "July",
             "lifespan": "perennial",
@@ -183,6 +193,7 @@
         "cirsiumDiscolor": {
             "scientificName": "Cirsium discolor",
             "commonName": "Field thistle",
+            "peakBloomMonths": "August, September, October",
             "bloomStart": "August",
             "bloomEnd": "October",
             "lifespan": "biennial, perennial",
@@ -201,6 +212,7 @@
         "coreopsisLanceolata": {
             "scientificName": "Coreopsis lanceolata",
             "commonName": "Lanceleaf tickseed",
+            "peakBloomMonths": "April, May, June",
             "bloomStart": "April",
             "bloomEnd": "June",
             "lifespan": "perennial",
@@ -219,6 +231,7 @@
         "crataegusSpp": {
             "scientificName": "Crataegus spp.",
             "commonName": "Hawthorn",
+            "peakBloomMonths": "April, May",
             "bloomStart": "April",
             "bloomEnd": "May",
             "lifespan": "perennial",
@@ -237,6 +250,7 @@
         "daleaPurpurea": {
             "scientificName": "Dalea purpurea",
             "commonName": "Purple prairie clover",
+            "peakBloomMonths": "July, August",
             "bloomStart": "July",
             "bloomEnd": "August",
             "lifespan": "perennial",
@@ -255,6 +269,7 @@
         "desmodiumCanadense": {
             "scientificName": "Desmodium canadense",
             "commonName": "Showy ticktrefoil",
+            "peakBloomMonths": "June, July, August, September",
             "bloomStart": "June",
             "bloomEnd": "September",
             "lifespan": "perennial",
@@ -273,6 +288,7 @@
         "elymusCanadensis": {
             "scientificName": "Elymus canadensis",
             "commonName": "Canada wildrye",
+            "peakBloomMonths": "July, August",
             "bloomStart": "July",
             "bloomEnd": "August",
             "lifespan": "perennial",
@@ -291,6 +307,7 @@
         "eupatoriumPerfoliatum": {
             "scientificName": "Eupatorium perfoliatum",
             "commonName": "Common boneset",
+            "peakBloomMonths": "July, August, September",
             "bloomStart": "July",
             "bloomEnd": "September",
             "lifespan": "perennial",
@@ -309,6 +326,7 @@
         "euthamiaGraminifolia": {
             "scientificName": "Euthamia graminifolia",
             "commonName": "Gass-leaved goldenrod",
+            "peakBloomMonths": "July, August, September",
             "bloomStart": "July",
             "bloomEnd": "September",
             "lifespan": "perennial",
@@ -327,6 +345,7 @@
         "eutrochiumMaculatum": {
             "scientificName": "Eutrochium maculatum",
             "commonName": "Spotted Joe Pye weed",
+            "peakBloomMonths": "July, August, September",
             "bloomStart": "July",
             "bloomEnd": "September",
             "lifespan": "perennial",
@@ -345,6 +364,7 @@
         "gentianaAndrewsii": {
             "scientificName": "Gentiana andrewsii",
             "commonName": "Closed bottle gentian",
+            "peakBloomMonths": "August, September, October",
             "bloomStart": "August",
             "bloomEnd": "October",
             "lifespan": "perennial",
@@ -361,8 +381,9 @@
             "deerResistant": true
         },
         "geraniumMaculatum": {
-            "scientificName": "Geranium maculatm",
+            "scientificName": "Geranium maculatum",
             "commonName": "Spotted geranium",
+            "peakBloomMonths": "April, May",
             "bloomStart": "April",
             "bloomEnd": "May",
             "lifespan": "perennial",
@@ -381,6 +402,7 @@
         "heleniumAutumnale": {
             "scientificName": "Helenium autumnale",
             "commonName": "Common sneezeweed",
+            "peakBloomMonths": "September, October, November",
             "bloomStart": "September",
             "bloomEnd": "November",
             "lifespan": "perennial",
@@ -399,6 +421,7 @@
         "helianthusSpp": {
             "scientificName": "Helianthus spp",
             "commonName": "Sunflower",
+            "peakBloomMonths": "June, July, August, September",
             "bloomStart": "June",
             "bloomEnd": "September",
             "lifespan": "annual, perennial",
@@ -417,6 +440,7 @@
         "heliopsisHelianthoides": {
             "scientificName": "Heliopsis helianthoides",
             "commonName": "Smooth oxeye",
+            "peakBloomMonths": "June, July, August",
             "bloomStart": "June",
             "bloomEnd": "August",
             "lifespan": "perennial",
@@ -435,6 +459,7 @@
         "koeleriaMacrantha": {
             "scientificName": "Koeleria macrantha",
             "commonName": "Prairie junegrass",
+            "peakBloomMonths": "May, June",
             "bloomStart": "May",
             "bloomEnd": "June",
             "lifespan": "perennial",
@@ -453,6 +478,7 @@
         "liatrisSpp": {
             "scientificName": "Liatris spp",
             "commonName": "Blazing star",
+            "peakBloomMonths": "July, August, September, October",
             "bloomStart": "July",
             "bloomEnd": "October",
             "lifespan": "perennial",
@@ -471,6 +497,7 @@
         "lobeliaSiphilitica": {
             "scientificName": "Lobelia siphilitica",
             "commonName": "Great blue lobelia",
+            "peakBloomMonths":"July, August",
             "bloomStart": "July",
             "bloomEnd": "August",
             "lifespan": "perennial",
@@ -489,6 +516,7 @@
         "lupinusPerennis": {
             "scientificName": "Lupinus Perennis",
             "commonName": "Wild lupine",
+            "peakBloomMonths": "April, May, June",
             "bloomStart": "April",
             "bloomEnd": "June",
             "lifespan": "perennial",
@@ -507,6 +535,7 @@
         "monardaFistulosa": {
             "scientificName": "Monarda fistulosa",
             "commonName": "Wild bergamot",
+            "peakBloomMonths": "June, July, August, September",
             "bloomStart": "June",
             "bloomEnd": "September",
             "lifespan": "perennial",
@@ -525,6 +554,7 @@
         "panicumVirgatum": {
             "scientificName": "Panicum virgatum",
             "commonName": "Switchgrass",
+            "peakBloomMonths": "July, August",
             "bloomStart": "July",
             "bloomEnd": "August",
             "lifespan": "perennial",
@@ -543,6 +573,7 @@
         "penstemonGracilis": {
             "scientificName": "Penstemon gracilis",
             "commonName": "Slender beard tongue",
+            "peakBloomMonths": "May, June",
             "bloomStart": "May",
             "bloomEnd": "June",
             "lifespan": "perennial",
@@ -561,6 +592,7 @@
         "penstemonHirsutus": {
             "scientificName": "Penstemon hirsutus",
             "commonName": "Hairy beardtongue",
+            "peakBloomMonths": "June, July",
             "bloomStart": "June",
             "bloomEnd": "July",
             "lifespan": "perennial",
@@ -579,6 +611,7 @@
         "physocarpusOpulifolius": {
             "scientificName": "Physocarpus opulifolius",
             "commonName": "Common ninebark",
+            "peakBloomMonths": "April, May, June",
             "bloomStart": "April",
             "bloomEnd": "June",
             "lifespan": "perennial",
@@ -597,6 +630,7 @@
         "prunusVirginiana": {
             "scientificName": "Prunus virginiana",
             "commonName": "Black chokecherry",
+            "peakBloomMonths": "April, May",
             "bloomStart": "April",
             "bloomEnd": "May",
             "lifespan": "perennial",
@@ -615,6 +649,7 @@
         "pycnanthemumVirginianum": {
             "scientificName": "Pycnanthemum virginianum",
             "commonName": "Virginia mountainmint",
+            "peakBloomMonths": "June, July, August",
             "bloomStart": "June",
             "bloomEnd": "August",
             "lifespan": "perennial",
@@ -633,6 +668,7 @@
         "ratibidaPinnata": {
             "scientificName": "Ratibida pinnata",
             "commonName": "Pinnate prairie coneflower",
+            "peakBloomMonths": "June, July, August",
             "bloomStart": "June",
             "bloomEnd": "August",
             "lifespan": "perennial",
@@ -651,6 +687,7 @@
         "rosaBlanda": {
             "scientificName": "Rosa blanda",
             "commonName": "Smooth wild rose",
+            "peakBloomMonths": "May, June",
             "bloomStart": "May",
             "bloomEnd": "June",
             "lifespan": "perennial",
@@ -669,6 +706,7 @@
         "salixHumilis": {
             "scientificName": "Salix humilis",
             "commonName": "Prairie willow",
+            "peakBloomMonths": "March, April, May",
             "bloomStart": "March",
             "bloomEnd": "May",
             "lifespan": "perennial",
@@ -687,6 +725,7 @@
         "schizachyriumScoparium": {
             "scientificName": "Schizachyrium scoparium",
             "commonName": "Little bluestem",
+            "peakBloomMonths": "August, September",
             "bloomStart": "August",
             "bloomEnd": "September",
             "lifespan": "perennial",
@@ -705,6 +744,7 @@
         "solidagoSpeciosa": {
             "scientificName": "Solidago speciosa",
             "commonName": "Showy goldenrod",
+            "peakBloomMonths": "August, September",
             "bloomStart": "August",
             "bloomEnd": "September",
             "lifespan": "perennial",
@@ -723,6 +763,7 @@
         "sorghastrumNutans": {
             "scientificName": "Sorghastrum nutans",
             "commonName": "Indiangrass",
+            "peakBloomMonths": "July, August, September",
             "bloomStart": "July",
             "bloomEnd": "September",
             "lifespan": "perennial",
@@ -741,6 +782,7 @@
         "spiraeaAlba": {
             "scientificName": "Spiraea alba",
             "commonName": "White meadowsweet",
+            "peakBloomMonths": "July, August, September",
             "bloomStart": "July",
             "bloomEnd": "September",
             "lifespan": "perennial",
@@ -759,6 +801,7 @@
         "symphyotrichumLateriflorum": {
             "scientificName": "Symphyotrichum lateriflorum",
             "commonName": "Calico aster",
+            "peakBloomMonths": "August, September, October",
             "bloomStart": "August",
             "bloomEnd": "October",
             "lifespan": "perennial",
@@ -777,6 +820,7 @@
         "symphyotrichumNovaeAngliae": {
             "scientificName": "Symphyotrichum novae-angliae",
             "commonName": "New England aster",
+            "peakBloomMonths": "August, September, October",
             "bloomStart": "August",
             "bloomEnd": "October",
             "lifespan": "perennial",
@@ -795,6 +839,7 @@
         "tiliaAmericana": {
             "scientificName": "Tilia americana",
             "commonName": "American basswood",
+            "peakBloomMonths": "May, June",
             "bloomStart": "May",
             "bloomEnd": "June",
             "lifespan": "perennial",
@@ -813,6 +858,7 @@
         "tradescantiaOhiensis": {
             "scientificName": "Tradescantia ohiensis",
             "commonName": "Ohio spiderwort",
+            "peakBloomMonths": "April, May, June",
             "bloomStart": "April",
             "bloomEnd": "June",
             "lifespan": "perennial",
@@ -831,6 +877,7 @@
         "verbenaStricta": {
             "scientificName": "Verbena stricta",
             "commonName": "Hoary verbena",
+            "peakBloomMonths": "June, July, August, September",
             "bloomStart": "June",
             "bloomEnd": "September",
             "lifespan": "annual, perennial",
@@ -849,6 +896,7 @@
         "veronicastrumVirginicum": {
             "scientificName": "Veronicastrum virginicum",
             "commonName": "Culver's root",
+            "peakBloomMonths": "June, July, August",
             "bloomStart": "June",
             "bloomEnd": "August",
             "lifespan": "perennial",
@@ -867,6 +915,7 @@
         "viburnumSpp": {
             "scientificName": "Viburnum spp",
             "commonName": "Viburnum",
+            "peakBloomMonths": "May, June, July",
             "bloomStart": "May",
             "bloomEnd": "July",
             "lifespan": "perennial",
@@ -885,6 +934,7 @@
         "ziziaAurea": {
             "scientificName": "Zizia aurea",
             "commonName": "Golden Alexanders",
+            "peakBloomMonths": "April, May, June",
             "bloomStart": "April",
             "bloomEnd": "June",
             "lifespan": "perennial",

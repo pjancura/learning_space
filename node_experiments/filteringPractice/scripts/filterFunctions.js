@@ -25,8 +25,7 @@ const data = plants.plants
 // contain the filter parameters in an object
 // each key will match one in the JSON object
 let filter = {
-    bloomStart: [],
-    bloomEnd: [],
+    peakBloomMonths: [],
     form: [],
     sunPreference: [],
     soilPreference: [],
@@ -55,21 +54,18 @@ monthMap.set("december", 12)
 
 // this will be used to build the query object
 filter = {
-    bloomTime:{
-            start: ["march"],
-            end: ["may"],
-        },
+    peakBloomMonths: ["July"],
     lifespan: [],
-    form: [],
+    form: ["forb"],
     sunPreference: [],
-    soilPreference: [],
+    soilPreference: ["dry"],
     larvalHost: [],
     supportsSpeciallistBees: [],
     bumbleBeePlant: [],
     nestSite: [],
     nestMaterials: [],
     nestThatch: [],
-    deerResistant: []
+    deerResistant: [true]
 }
 
 
@@ -94,35 +90,46 @@ const buildFilter = (filter) => {
 // the callback should return true or false
 // if true the item is included in the new array
 
-const handleBloomTime = (start, end, key) => {
-    // console.log(data, key[0])
-    let keyStartMonthInt = monthMap.get(key['start'].toLowerCase())
-    let keyEndMonthInt = monthMap.get(key['end'].toLowerCase())
-    let startMonthInt = monthMap.get(start.toLowerCase())
-    let endMonthInt = monthMap.get(end.toLowerCase())
-    console.log(keyMonthInt, dataMonthInt)
-    if (keyStartMonthInt !== undefined && startMonthInt < keyStartMonthInt) {
-        return false
-    }
-    if (keyEndMonthInt !== null && endMonthInt > keyEndMonthInt) {
-        return false
-    }
-
-}
+// const handleBloomTime = (start, end, key) => {
+//     // console.log(typeof(key['start'][0]))
+//     if (key['start'][0] === undefined && key['end'][0] === undefined) {
+//         return true
+//     }
+//     let keyStartMonthInt = monthMap.get(key['start'][0].toLowerCase())
+//     let keyEndMonthInt = monthMap.get(key['end'][0].toLowerCase())
+//     let startMonthInt = monthMap.get(start.toLowerCase())
+//     let endMonthInt = monthMap.get(end.toLowerCase())
+//     // console.log(keyStartMonthInt, keyEndMonthInt, startMonthInt, endMonthInt)
+//     if (keyStartMonthInt !== undefined && startMonthInt < keyStartMonthInt) {
+//         return false
+//     }
+//     if (keyEndMonthInt !== null && endMonthInt > keyEndMonthInt) {
+//         return false
+//     }
+//     return true
+// }
 
 
 const filterData = (data, query) => {
     const filteredData = Object.values(data).filter( (item) => {
         for (let key in query) {
             let values = item[key]
+            // console.log(`VALUES: ${item['scientificName']} ${query[key]} ${values}`)
             if (typeof(values) === "boolean") {
                 if (values === undefined || !query[key].includes(values)) {
                     return false;
                 }
             }
-            else if (key.includes("bloom")) {
-                return handleBloomTime(item['bloomStart'], item['bloomEnd'], query[key])
-            }
+            // else if (key.includes("bloom")) {
+            //     let isBetweenBloomTime = handleBloomTime(item['bloomStart'], item['bloomEnd'], query[key])
+            //     // console.log(`isBetweenBloomTime: ${isBetweenBloomTime}`)
+            //     if(isBetweenBloomTime) {
+            //         continue
+            //     }
+            //     else {
+            //         return false
+            //     }
+            // }
             else if (values.includes(",")){
                 values = item[key].replaceAll(" ", "").split(",")
                 query[key].forEach(queryValue =>  {
@@ -146,7 +153,7 @@ const filterData = (data, query) => {
     })
     console.log(`FILTERED DATA: ${filteredData.length}`)
     filteredData.forEach(item => {
-        console.log(JSON.stringify(item))
+        console.log(`\t${JSON.stringify(item.scientificName)}`)
     })
     return filteredData
 }
