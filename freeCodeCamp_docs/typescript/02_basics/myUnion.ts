@@ -39,6 +39,8 @@ const data: number[] = [1, 2, 3];
 const data2: string[] = ["1", "2", "3"];
 const data3: (string | number)[] = ["1", "2", 3];
 
+// line 44 is a cheater enum basically
+// i am saying that there are only 3 values taht seatAllotment can be
 let seatAllotment: "aisle" | "middle" | "window";
 
 seatAllotment = "aisle";
