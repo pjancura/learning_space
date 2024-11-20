@@ -1,0 +1,38 @@
+import PropTypes from 'prop-types';
+
+function Reminder(props){
+  function handleChange(){
+    props.setIsComplete(!props.isComplete,props.id);
+  }
+ 
+  return(
+    <div className="item" id={props.id} key={props.key}>
+        item: {props.reminderText}
+      <span className="due-date">due date: {props.dueDate}</span>
+      <span className="is-complete">
+          Completed?: <input type="checkbox"
+                         checked={props.isComplete}
+                         onChange={handleChange}/></span>
+    </div>
+    );
+  }
+ 
+Reminder.propTypes = {
+  reminderText: PropTypes.string,
+  dueDate: PropTypes.string,
+  isComplete: PropTypes.bool,
+  setIsComplete: PropTypes.func,
+  id: PropTypes.number,
+  key: PropTypes.number,
+}
+
+const date = new Date();
+const formattedDate = date.toISOString().substring(0,10);
+
+Reminder.defaultProps = {
+  reminderText:"No Reminder Set",
+  dueDate:formattedDate,
+  isComplete: false,
+}
+
+export default Reminder;  
