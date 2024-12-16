@@ -16,17 +16,18 @@ def balancing(s: str, m: int) -> bool:
                     break
         # print(res)
 
-    if m > 0 and res != 0:
-        while m != 0 or res != 0:
-            if res > 0:
-                m -= 1
-                res -= 1
-            else:
-                m -= 1
-                res += 1
+    # if m > 0 and res != 0:
+    #     print("m > 0 and res != 0", s)
+    #     while m != 0 or res != 0:
+    #         if res > 0:
+    #             m -= 1
+    #             res -= 1
+    #         else:
+    #             m -= 1
+    #             res += 1
 
     # print(res == 0)
-    return res == 0
+    return (res - m) == 0
 
 
 def balanced_or_not(arr: list[str], changes: int) -> list[int]:
