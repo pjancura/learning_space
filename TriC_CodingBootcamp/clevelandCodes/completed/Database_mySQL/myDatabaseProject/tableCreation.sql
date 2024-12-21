@@ -43,14 +43,10 @@ music_key VARCHAR(10) NOT NULL PRIMARY KEY);
 CREATE TABLE tonalities(
 tonality VARCHAR(256) NOT NULL PRIMARY KEY);
 
--- I HAD TO CHANGE THE ORIGINAL TABLE
-ALTER TABLE keySignatures
-DROP COLUMN letter,
-DROP COLUMN tonality;
-
--- THIS ADDED THE COLUMN FOR THE PERMUTATIONS OF THE KEYS
-ALTER TABLE keySignatures
-ADD COLUMN key_sig_name VARCHAR(256);
+-- TABLE THAT HOLDS ALL KEYSIGNATURE 
+CREATE TABLE keySignatures (
+ks_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+key_sig_name VARCHAR(256) NOT NULL);
 
 -- TABLES TO CREATE THE PERMUTATIONS
 CREATE TABLE beats (
@@ -61,19 +57,16 @@ note_value INT NOT NULL PRIMARY KEY);
 
 -- CHANGE FOR ORIGINAL TABLE
 	-- DROP
-ALTER TABLE timeSignatures
-DROP COLUMN beats,
-DROP COLUMN note_value;
-	-- ADD
-ALTER TABLE timeSignatures
-ADD COLUMN time_signature VARCHAR(256) NOT NULL;
+CREATE TABLE timeSignatures (
+ts_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+time_signature VARCHAR(256) NOT NULL);
 
 -- CREATE PERMUTATIONS
-INSERT INTO timeSignatures(time_signature)
-SELECT CONCAT(beats.beat_count, " / ", noteValues.note_value)
-FROM beats
-CROSS JOIN noteValues
-ORDER BY noteValues.note_value, beats.beat_count;
+-- INSERT INTO timeSignatures(time_signature)
+-- SELECT CONCAT(beats.beat_count, " / ", noteValues.note_value)
+-- FROM beats
+-- CROSS JOIN noteValues
+-- ORDER BY noteValues.note_value, beats.beat_count;
 
 
 -- THESE WERE NEEDED TO ALTER THE TABLES AFTER THE INITIAL CREATION

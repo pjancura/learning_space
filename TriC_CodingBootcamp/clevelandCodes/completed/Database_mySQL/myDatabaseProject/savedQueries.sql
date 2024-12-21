@@ -8,7 +8,7 @@ SELECT TABLE_SCHEMA AS 'database',
        COLUMN_DEFAULT AS 'Default',
        EXTRA AS 'Extra' 
 FROM information_schema.COLUMNS
-WHERE TABLE_SCHEMA = DATABASE()
+WHERE TABLE_SCHEMA = DATABASE();
 
 
 
