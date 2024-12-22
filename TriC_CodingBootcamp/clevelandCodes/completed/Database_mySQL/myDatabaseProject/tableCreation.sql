@@ -55,8 +55,7 @@ beat_count INT NOT NULL PRIMARY KEY);
 CREATE TABLE noteValues(
 note_value INT NOT NULL PRIMARY KEY);
 
--- CHANGE FOR ORIGINAL TABLE
-	-- DROP
+-- timesignatures TABLE
 CREATE TABLE timeSignatures (
 ts_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 time_signature VARCHAR(256) NOT NULL);
