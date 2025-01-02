@@ -1,0 +1,21 @@
+department_id,department_name,floor_number,contact_number
+1,Emergency Room,1,136-235-3099
+2,Pediatrics,6,889-969-5248
+3,Cardiology,4,397-962-6605
+4,Orthopedics,9,875-956-0174
+5,Neurology,10,383-998-5338
+6,Oncology,8,858-963-2247
+7,Dermatology,3,559-289-2719
+8,Gastroenterology,7,868-296-2175
+9,Urology,1,212-195-5471
+10,Ophthalmology,5,192-545-0473
+11,Radiology,6,643-115-9239
+12,Physical Therapy,4,158-646-1018
+13,Psychiatry,8,763-477-9134
+14,Obstetrics and Gynecology,3,701-861-8640
+15,Endocrinology,2,342-516-5148
+16,Pulmonology,5,489-819-2167
+17,Nephrology,8,167-615-2159
+18,Hematology,8,952-821-6019
+19,Infectious Diseases,10,981-281-1993
+20,Rheumatology,9,893-402-3845
