@@ -1,4 +1,4 @@
-treatment_id,patient_id,doctor_id,reason_for_visit,floor,room,treatment_date,treatment_days
+treatment_id,patient_id,doctor_id,reason_for_visit,floor_number,room_number,treatment_start_date,treatment_days
 1,538,39,heart palpitations,4,23,2020-01-01,5
 2,496,1,sprained ankle,4,20,2020-01-01,19
 3,669,4,chest pain,2,32,2020-01-05,2
