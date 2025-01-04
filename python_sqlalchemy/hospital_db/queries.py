@@ -31,15 +31,29 @@ if __name__ == "__main__":
         for r in results:
             print(r)
 
-        possible_nurses_helping_patient = (
-            select(
-                Patient.gender,
-                func.count(Patient.gender).label('count')
-            ).group_by(Patient.gender)
-        )
-        results_2 = session.execute(possible_nurses_helping_patient).all()
 
-        print(f"\n{str(possible_nurses_helping_patient)}\n")
+        doctor_name = func.concat(Doctor.first_name, " ", Doctor.last_name).label('doctor_name')
+        nurse_name = func.concat(Nurse.first_name, " ", Nurse.last_name).label('nurse_name')
+
+        people_involved_in_treatment = (
+            select(
+                Treatment.treatment_id,
+                Patient.patient_id,
+                Treatment.reason_for_visit,
+                patient_name,
+                doctor_name,
+                nurse_name,
+                Department.department_name
+            )
+            .join(Patient, Patient.patient_id == Treatment.patient_id)
+            .join(Doctor, Doctor.doctor_id == Patient.primary_doctor_id)
+            .join(Department, Department.department_id == Doctor.department_id)
+            .join(Nurse, Nurse.department_id == Doctor.department_id)
+            .where(Treatment.treatment_id == 1, Nurse.shift_details == "day shift")
+        )
+        results_2 = session.execute(people_involved_in_treatment).all()
+
+        print(f"\n{str(people_involved_in_treatment)}\n")
 
         print(tuple(results_2[0]._asdict().keys()))      # this will print the column headers
         for r in results_2:
