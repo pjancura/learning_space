@@ -1,0 +1,33 @@
+to start virtual environment:
+
+    'source .venv_hospital_db/bin/activate'
+
+end virtual environment:
+
+    'deactivate'
+
+this virtual environment was created with the following commands:
+
+    'python3.13 -m venv .venv_hospital_db'
+    'source .venv_hospital_db/bin/activate'
+    'python3 -m pip install sqlalchemy mysql-connector-python'
+
+
+OTHER NOTES:
+
+I had to run the following SQL command:
+    'GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'pj'@'localhost' WITH GRANT OPTION;'
+in order for my user to be able to connect / create the hospital_1 db.
+
+display the current user in the mysql terminal:
+    'SHOW user();'
+
+adding a table with a foreignKey constraint:
+    add the MetaData of the table to the script that will create the new table  
+    access the column like an object 
+        'table_name.c.column_name'
+
+when making SELECT queries:
+    if the query returns more than 1 column, use execute(stmt) NOT scalars(stmt)
+    scalars(stmt) is meant to be used only with a classes __repr__ method
+
