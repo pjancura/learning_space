@@ -46,9 +46,9 @@ class Singly_Linked_List:
         if count < index - 1:
             print("index out of bounds")
         else:
-            self.insert_after(current, data)
+            self._insert_after(current, data)
 
-    def insert_after(self, prev_node: Self, data: any) -> None:
+    def _insert_after(self, prev_node: Self, data: any) -> None:
             new_node = Node(data)
             new_node.next = prev_node.next
             prev_node.next = new_node
