@@ -50,6 +50,31 @@ class BinarySearchTree():
 
                 print(level_values, sep=" ")
 
+    # Function to perform level order traversal
+    def levelOrder(self):
+        res = []
+        self.levelOrderRec(self.root, 0, res)
+        return res
+    
+    # Helper function for recursive level order traversal
+    def levelOrderRec(self, root, level, res):
+        if not root:
+            return
+
+        # Add a new level to the result if needed
+        if len(res) <= level:
+            res.append([])
+
+        # Add current node's data to its corresponding level
+        res[level].append(root.data)
+
+        # Recur for left and right children
+        self.levelOrderRec(root.left, level + 1, res)
+        self.levelOrderRec(root.right, level + 1, res)
+
+
+    
+
 if __name__ == "__main__":
 
     bst = BinarySearchTree()
@@ -60,3 +85,10 @@ if __name__ == "__main__":
         bst.insert(a)
 
     bst.print_levels()
+
+    res = bst.levelOrder()
+    # Print the result
+    for level in res:
+        for data in level:
+            print(data, end=" ")
+        print()

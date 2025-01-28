@@ -22,5 +22,5 @@ def fib(n, memo):
 
 
 if __name__ == "__main__":
-    print("memo" in globals())
+    print("memo_1" in globals())
     allFib(10)

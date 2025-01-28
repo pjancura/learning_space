@@ -36,15 +36,15 @@ class SinglyLinkedList():
             next_node = curr_node.right   
 
             while curr_node:
-                p_d = prev_node.data if prev_node else None
-                c_d = curr_node.data if curr_node else None
-                n_d = next_node.data if next_node else None
-                print(p_d, c_d, n_d)
+                # p_d = prev_node.data if prev_node else None
+                # c_d = curr_node.data if curr_node else None
+                # n_d = next_node.data if next_node else None
+                # print(p_d, c_d, n_d)
                 curr_node.right = prev_node
                 prev_node = curr_node
                 curr_node = next_node
                 next_node = curr_node.right if curr_node else None
-                if not curr_node:
+                if curr_node is None:
                     self.head = prev_node    
 
     def print_sll(self) -> None:
