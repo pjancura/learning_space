@@ -92,24 +92,24 @@ def recursive_factorial(n):
     return return_value
 
 if __name__ == "__main__":
-    fizz_buzz(30)
+    # fizz_buzz(30)
     check_prime = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 , 20]
     for i in check_prime:
         print(i, is_prime(i))
     
-    poss_palindromes = ['fghgf', 'ff', 'af', 'tttyyyttt', 'racecar', 'todayyadot', 'birthhtib']
-    for s in poss_palindromes:
-        print(s, is_palindrome(s))
+    # poss_palindromes = ['fghgf', 'ff', 'af', 'tttyyyttt', 'racecar', 'todayyadot', 'birthhtib']
+    # for s in poss_palindromes:
+    #     print(s, is_palindrome(s))
 
-    print_fibonacci(10)
+    # print_fibonacci(10)
 
-    print_prime_factors(62)
-    print_prime_factors(20)
-    print_prime_factors(100)
+    # print_prime_factors(62)
+    # print_prime_factors(20)
+    # print_prime_factors(100)
 
-    print_prime_numbers(101)
+    # print_prime_numbers(101)
 
-    print(recursive_factorial(4))
+    # print(recursive_factorial(4))
 
 
 

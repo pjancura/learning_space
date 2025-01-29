@@ -1,4 +1,4 @@
-def binary_search(arr: list[int], target: int) -> list[int]:
+def binary_search(arr: list[int], target: int) -> int:
     left = 0
     right = len(arr) - 1
 

@@ -1,3 +1,5 @@
+import datetime
+
 from typing import Self, Literal, Optional
 
 class Node:
@@ -45,6 +47,48 @@ class BinarySearchTree:
                     return curr_node
                 if data < curr_node.data:
                     curr_node = curr_node.left
+                else:
+                    curr_node = curr_node.right
+
+    def search_level_order(self, target, start_node=None):
+        if self.root is None:
+            print("binary tree is empty")
+        else:
+            queue = []
+            if start_node is None:
+                queue.append(self.root)
+            else:
+                queue.append(start_node)
+
+            while len(queue) > 0:
+                level_length = len(queue)
+                for _ in range(level_length):
+                    curr_node = queue.pop(0)
+                    if curr_node.data == target:
+                        return curr_node
+                    if curr_node.left:
+                        queue.append(curr_node.left)
+                    if curr_node.right:
+                        queue.append(curr_node.right)
+            return None
+        
+    def _bst_level_traversal(self, node: Node) -> None:
+        if node is None:
+            return None
+
+        queue: list[Node] = [node]
+        while queue:
+            level_size = len(queue)
+            level_values = []
+            for _ in range(level_size):
+                node = queue.pop(0)
+                level_values.append(node.data)
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+
+            print(level_values)
                 
 
 
@@ -57,3 +101,16 @@ if __name__ == "__main__":
         bst.insert(a)
 
     bst._inorder_traversal(bst.root)
+    print()
+    bst._bst_level_traversal(bst.root)
+
+    found_node = bst.search_level_order(20)
+
+    print(found_node.data)
+
+    found_node = bst.search_level_order(25, found_node)
+
+    print(found_node.data if found_node else None)
+
+
+    print(datetime.datetime.now().strftime("%Y-%m-%d"))

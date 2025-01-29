@@ -9,8 +9,8 @@ def longest_palindrome_substring(string):
         if i < R:
             P[i] = min(R - i, P[2 * C - i])
 
-        while mod_str[i - 1 - P[i]] == mod_str[i + 1 + P[i]]:
-            P[i] += 1
+            while mod_str[i - 1 - P[i]] == mod_str[i + 1 + P[i]]:
+                P[i] += 1
 
         if i + P[i] > R:
             C = i
