@@ -3,9 +3,9 @@ package java_17.array_notes;
 import java.util.Arrays;
 
 public class PartOne {
-    
+
     public static void main(String[] args) {
-        
+
         int[] myIntArray = new int[10];
         myIntArray[5] = 50;
 
@@ -14,10 +14,10 @@ public class PartOne {
 
         System.out.println(myDoubleArray[2]);
 
-        int[] fivePositives = new int[]{1, 2, 3, 4, 5};
+        int[] fivePositives = new int[] { 1, 2, 3, 4, 5 };
         System.out.println("first = " + fivePositives[2]);
         int arrayLength = fivePositives.length;
-        System.out.println("lenght of array = " + arrayLength);
+        System.out.println("length of array = " + arrayLength);
         System.out.println("last = " + fivePositives[arrayLength - 1]);
 
         int[] newArray = new int[5];
@@ -51,6 +51,5 @@ public class PartOne {
         System.out.println(Arrays.toString(objectArray));
         System.out.print("\n");
 
-        
     }
 }
