@@ -4,23 +4,22 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class FindMatch {
-    
+
     public static void main(String[] args) {
-        String[] sArray = {"Able", "Jane", "Mark", "Ralph", "David"};
+        String[] sArray = { "Able", "Jane", "Mark", "Ralph", "David" };
         Arrays.sort(sArray);
         if (Arrays.binarySearch(sArray, "Mark") >= 0) {
             System.out.println("Found Mark in the list");
         }
 
-        int[] s1 = {1, 2, 3, 4, 5};
-        int[] s2 = {1, 2, 3, 4, 5};
+        int[] s1 = { 1, 2, 3, 4, 5 };
+        int[] s2 = { 1, 2, 3, 4, 5 };
 
         if (Arrays.equals(s1, s2)) {
             System.out.println("Arrays are equal");
         } else {
             System.out.println("Arrays are not equal");
         }
-
 
         int[] intArray = getRandomArray(20);
         System.out.println(Arrays.toString(intArray));
@@ -29,8 +28,6 @@ public class FindMatch {
         reverseArray(intArray);
         System.out.println(Arrays.toString(intArray));
         System.out.println(Arrays.toString(sortIntegers(intArray)));
-
-        
 
     }
 
@@ -56,10 +53,11 @@ public class FindMatch {
     }
 
     private static int[] sortIntegers(int[] array) {
+        // this is a practice edit using vim motions
         int[] sortedArray = Arrays.copyOf(array, array.length);
         boolean flag = true;
         int temp;
-        while(flag) {
+        while (flag) {
             flag = false;
             for (int i = 0; i < sortedArray.length - 1; i++) {
                 if (sortedArray[i] < sortedArray[i + 1]) {
