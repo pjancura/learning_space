@@ -86,7 +86,7 @@ public class TicTacToe {
             }
             break;
         }
-        this.board[y][x] = this.playerTurn == 1 ? "X" : "O";
+        this.setBoardElement(x, y, this.playerTurn == 1 ? "X" : "O");
     }
 
     public void setPlayerTurn() {
