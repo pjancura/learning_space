@@ -1,8 +1,11 @@
+// use the following command to run this file
+// java -cp ".:../lib/mysql-connector-j-9.2.0.jar" GriegLyricPieces.java
+
 package java_17.jdbc_practice.src;
 
 import java.sql.*;
 
-public class JdbcToDoList {
+public class GriegLyricPieces {
 
     public static void main(String[] args) throws Exception {
         final String URL = "jdbc:mysql://localhost:3306/griegLyricPieces_2";
@@ -10,14 +13,19 @@ public class JdbcToDoList {
         final String PASSWORD = "passwordA1!";
 
         Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(
-                    "select * from pieces");
+            statement = connection.createStatement();
+            String select = "SELECT *";
+            String from = "FROM opusInfo";
+            resultSet = statement.executeQuery(
+                    select + from);
             int id_num;
             int op_num;
             int year_complete;
@@ -30,14 +38,15 @@ public class JdbcToDoList {
                 year_complete = resultSet.getInt("year_complete");
                 dedication = resultSet.getString("dedication");
                 total_pieces = resultSet.getInt("total_pieces");
-                System.out.printf("%n\t%n\t%n\t%s\t%n\n", id_num, op_num, year_complete, dedication, total_pieces);
+                System.out.printf("%d\t%d\t%d\t%s\t%d\n", id_num, op_num, year_complete, dedication, total_pieces);
             }
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
             resultSet.close();
             statement.close();
             connection.close();
 
-        } catch (Exception e) {
-            System.out.println(e);
         }
     }
 }
